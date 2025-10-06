@@ -3,7 +3,7 @@ import { assets, byNodeId } from "../lib/assets";
 
 export default function ContactStrip() {
   return (
-    <section className="py-6">
+    <section className="relative z-20 -mt-12 md:-mt-16 py-6">
       <div className="mx-auto max-w-6xl px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
           <div className="flex items-center gap-1 bg-[#B3A79B]">
@@ -27,7 +27,7 @@ export default function ContactStrip() {
               <Image src={assets.time} alt="Usuários" width={40} height={40} className="object-contain" />
             </div>
             <div>
-              <p className="text-base font-bold text-[#FFFFFF]">Das 08:00 às 17:00</p>
+              <p className="text-base font-bold text-[#50341F]">Das 08:00 às 17:00</p>
             </div>
           </div>
         </div>
