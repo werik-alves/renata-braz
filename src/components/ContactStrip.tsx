@@ -27,7 +27,7 @@ export default function ContactStrip() {
               <Image src={assets.time} alt="Usuários" width={40} height={40} className="object-contain" />
             </div>
             <div>
-              <p className="text-base font-bold text-[#50341F]">Das 08:00 às 17:00</p>
+              <p className="text-base font-bold text-[#FFFFFF]">Das 08:00 às 17:00</p>
             </div>
           </div>
         </div>
