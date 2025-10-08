@@ -11,8 +11,8 @@ export default function Page() {
     <main>
       <Hero />
       <ContactStrip />
-      <Plans />
       <About />
+      <Plans />
       <Services />
       <Gallery />
       <Contact />
