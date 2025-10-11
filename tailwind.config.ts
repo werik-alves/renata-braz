@@ -23,7 +23,7 @@ export default {
         accent: tokens.colors?.brand?.accent || '#B3A79B',
         highlight: tokens.colors?.brand?.highlight || tokens.colors?.brand?.accent || '#B3A79B',
         // Neutral / UI
-        background: tokens.colors?.neutral?.background || '#F1EDE4',
+        background:'#2F2926',
         foreground: tokens.colors?.neutral?.foreground || '#383330',
         // Fallbacks já existentes:
         muted: '#94a3b8',
