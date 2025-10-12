@@ -2,7 +2,7 @@ import Hero from "../components/Hero";
 import ContactStrip from "../components/ContactStrip";
 import Plans from "../components/Plans";
 import About from "../components/About";
-import Services from "../components/Services";
+import Diferenciais from "../components/Diferenciais";
 import Gallery from "../components/Gallery";
 import Contact from "../components/Contact";
 import Especilidades from "@/components/Especilidades";
@@ -17,7 +17,7 @@ export default function Page() {
       <Especilidades />
       <Conteudo />
       <Plans />
-      <Services />
+      <Diferenciais />
       <Gallery />
       <Contact />
     </main>
