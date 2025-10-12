@@ -12,32 +12,32 @@ export default function Especilidades() {
           </div>
           
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
-            <div className="relative pb-1">
-              <div className="bg-[#F1EDE4] rounded-2xl p-6 shadow border border-black/10">
+            <div className="relative pb-1 cursor-pointer">
+              <div className="bg-[#F1EDE4] rounded-2xl p-6 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">Assessoria Mensal<br/>Simples Nacional</h3>
               </div>
-              <button className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 inline-flex items-center justify-center rounded-md bg-[#B3A79B] text-[#50341F] px-4 py-2 text-sm font-semibold shadow ring-1 ring-black/10">Saiba mais</button>
+              <button className="cursor-pointer absolute sm:-bottom-5 md:-bottom-0.5 -bottom-5 left-1/2 -translate-x-1/2 inline-flex items-center justify-center rounded-md bg-[#B3A79B] text-[#50341F] px-4 py-2 text-sm font-semibold shadow ring-1 ring-black/10">Saiba mais</button>
             </div>
 
-            <div className="relative pb-6">
-              <div className="bg-[#F1EDE4] rounded-2xl p-9.5 shadow border border-black/10">
+            <div className="relative pb-6 cursor-pointer">
+              <div className="bg-[#F1EDE4] rounded-2xl p-9.5 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">Assessoria MEI</h3>
               </div>
-              <button className="absolute -bottom-0 left-1/2 -translate-x-1/2 inline-flex items-center justify-center rounded-md bg-[#B3A79B] text-[#50341F] px-4 py-2 text-sm font-semibold shadow ring-1 ring-black/10">Saiba mais</button>
+              <button className="cursor-pointer  absolute -bottom-0 left-1/2 -translate-x-1/2 inline-flex items-center justify-center rounded-md bg-[#B3A79B] text-[#50341F] px-4 py-2 text-sm font-semibold shadow ring-1 ring-black/10">Saiba mais</button>
             </div>
 
-            <div className="relative pb-1">
-              <div className="bg-[#F1EDE4] rounded-2xl p-6 shadow border border-black/10">
+            <div className="relative pb-1 cursor-pointer">
+              <div className="bg-[#F1EDE4] rounded-2xl p-6 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">Regularizações de<br/>Empresas</h3>
               </div>
-              <button className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 inline-flex items-center justify-center rounded-md bg-[#B3A79B] text-[#50341F] px-4 py-2 text-sm font-semibold shadow ring-1 ring-black/10">Saiba mais</button>
+              <button className=" cursor-pointer absolute sm:-bottom-5 md:-bottom-0.5 -bottom-5 left-1/2 -translate-x-1/2 inline-flex items-center justify-center rounded-md bg-[#B3A79B] text-[#50341F] px-4 py-2 text-sm font-semibold shadow ring-1 ring-black/10">Saiba mais</button>
             </div>
 
-            <div className="relative pb-6">
-              <div className="bg-[#F1EDE4] rounded-2xl p-9.5 shadow border border-black/10">
+            <div className="relative pb-6 cursor-pointer">
+              <div className="bg-[#F1EDE4] rounded-2xl p-9.5 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">Abertura de CNPJ</h3>
               </div>
-              <button className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 inline-flex items-center justify-center rounded-md bg-[#B3A79B] text-[#50341F] px-4 py-2 text-sm font-semibold shadow ring-1 ring-black/10">Saiba mais</button>
+              <button className="cursor-pointer absolute -bottom-0.5 left-1/2 -translate-x-1/2 inline-flex items-center justify-center rounded-md bg-[#B3A79B] text-[#50341F] px-4 py-2 text-sm font-semibold shadow ring-1 ring-black/10">Saiba mais</button>
             </div>
           </div>
         </div>

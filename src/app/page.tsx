@@ -6,6 +6,7 @@ import Services from "../components/Services";
 import Gallery from "../components/Gallery";
 import Contact from "../components/Contact";
 import Especilidades from "@/components/Especilidades";
+import Conteudo from "@/components/Conteudo";
 
 export default function Page() {
   return (
@@ -14,6 +15,7 @@ export default function Page() {
       <ContactStrip />
       <About />
       <Especilidades />
+      <Conteudo />
       <Plans />
       <Services />
       <Gallery />
