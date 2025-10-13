@@ -42,7 +42,7 @@ export default function Services() {
             </div>
           </div>
         </div>
-        <p className="mt-12 text-center text-xs md:text-sm font-bold tracking-wide text-[#383330]">CONHEÇA TODOS NOSSOS DIFERENCIAIS</p>
+        <p className="mt-12 text-center text-xs md:text-sm font-bold tracking-wide text-[#383330] cursor-pointer">CONHEÇA TODOS NOSSOS DIFERENCIAIS</p>
       </div>
     </section>
   );

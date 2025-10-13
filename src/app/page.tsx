@@ -3,7 +3,7 @@ import ContactStrip from "../components/ContactStrip";
 import Plans from "../components/Plans";
 import About from "../components/About";
 import Diferenciais from "../components/Diferenciais";
-import Gallery from "../components/Gallery";
+import Depoimento from "../components/Depoimento";
 import Contact from "../components/Contact";
 import Especilidades from "@/components/Especilidades";
 import Conteudo from "@/components/Conteudo";
@@ -18,7 +18,7 @@ export default function Page() {
       <Conteudo />
       <Plans />
       <Diferenciais />
-      <Gallery />
+      <Depoimento />
       <Contact />
     </main>
   );
