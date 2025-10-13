@@ -81,7 +81,7 @@ export default function Depoimento() {
           <button
             aria-label="Anterior"
             onClick={() => scrollToPage(page - 1)}
-            className="absolute -left-6 md:-left-8 top-1/2 -translate-y-1/2 z-10 bg-[#F1EDE4] text-[#383330] w-9 h-9 md:w-10 md:h-10 rounded-full shadow flex items-center justify-center"
+            className="absolute -left-6 md:-left-8 top-1/2 -translate-y-1/2 z-10 bg-[#383330] text-[#F1EDE4] w-9 h-9 md:w-10 md:h-10 rounded-full shadow flex items-center justify-center"
           >
             ‹
           </button>
@@ -110,7 +110,7 @@ export default function Depoimento() {
           <button
             aria-label="Próximo"
             onClick={() => scrollToPage(page + 1)}
-            className="absolute -right-6 md:-right-8 top-1/2 -translate-y-1/2 z-10 bg-[#F1EDE4] text-[#383330] w-9 h-9 md:w-10 md:h-10 rounded-full shadow flex items-center justify-center"
+            className="absolute -right-6 md:-right-8 top-1/2 -translate-y-1/2 z-10 bg-[#383330] text-[#F1EDE4] w-9 h-9 md:w-10 md:h-10 rounded-full shadow flex items-center justify-center"
           >
             ›
           </button>
