@@ -10,6 +10,7 @@ export const assets = {
   comunicacao: "/assets/comunicacao.png",
   emissao: "/assets/emissao.png",
   relacionamento: "/assets/relacionamento.png",
+  img_email: "/assets/img_email.png",
 };
 
 export const iconeValores = "/assets/iconevalores.png";
@@ -17,6 +18,7 @@ export const acessoria = "/assets/acessoria.png";
 export const comunicacao = "/assets/comunicacao.png";
 export const emissao = "/assets/emissao.png";
 export const relacionamento = "/assets/relacionamento.png";
+export const img_email = "/assets/img_email.png";
 
 
 
