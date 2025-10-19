@@ -1,45 +1,55 @@
 "use client";
 
-import Image from 'next/image';
-import { useState } from 'react';
+import Image from "next/image";
+import { useState } from "react";
 
 export default function Contact() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [touched, setTouched] = useState({ name: false, email: false, phone: false });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    phone: false,
+  });
 
   const nameValid = /^[A-Za-zÀ-ÿ'\s]{2,}$/.test(name.trim());
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
-  const phoneDigits = phone.replace(/\D/g, '');
+  const phoneDigits = phone.replace(/\D/g, "");
   const phoneValid = phoneDigits.length === 10 || phoneDigits.length === 11;
   const formValid = nameValid && emailValid && phoneValid;
 
-  const handleNameChange = (e: any) => {
-    const sanitized = String(e.target.value).replace(/[^A-Za-zÀ-ÿ'\s]/g, '');
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const sanitized = String(e.target.value).replace(/[^A-Za-zÀ-ÿ'\s]/g, "");
     setName(sanitized);
   };
 
-  const handleEmailChange = (e: any) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(String(e.target.value));
   };
 
-  const handlePhoneChange = (e: any) => {
-    const onlyDigits = String(e.target.value).replace(/\D/g, '').slice(0, 11);
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onlyDigits = String(e.target.value).replace(/\D/g, "").slice(0, 11);
     let formatted = onlyDigits;
     if (onlyDigits.length <= 2) {
       formatted = `(${onlyDigits}`;
     } else if (onlyDigits.length <= 6) {
       formatted = `(${onlyDigits.slice(0, 2)}) ${onlyDigits.slice(2)}`;
     } else if (onlyDigits.length <= 10) {
-      formatted = `(${onlyDigits.slice(0, 2)}) ${onlyDigits.slice(2, 6)}-${onlyDigits.slice(6)}`;
+      formatted = `(${onlyDigits.slice(0, 2)}) ${onlyDigits.slice(
+        2,
+        6
+      )}-${onlyDigits.slice(6)}`;
     } else {
-      formatted = `(${onlyDigits.slice(0, 2)}) ${onlyDigits.slice(2, 7)}-${onlyDigits.slice(7)}`;
+      formatted = `(${onlyDigits.slice(0, 2)}) ${onlyDigits.slice(
+        2,
+        7
+      )}-${onlyDigits.slice(7)}`;
     }
     setPhone(formatted);
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setTouched({ name: true, email: true, phone: true });
     if (!formValid) return;
@@ -54,11 +64,28 @@ export default function Contact() {
             {/* Card de formulário */}
             <div className="flex justify-center md:justify-start">
               <div className="w-full max-w-sm bg-[#F1EDE4] rounded-lg shadow-lg ring-1 ring-black/10 p-14">
-                <h3 className="text-[#50341F] font-semibold text-lg mb-5">Faça seu orçamento</h3>
+                <h3 className="text-[#50341F] font-semibold text-lg mb-5">
+                  Faça seu orçamento
+                </h3>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <label className="block">
-                    <div className={`flex items-center gap-3 bg-white/80 rounded-md px-3 py-2 shadow-sm ${touched.name && !nameValid ? 'ring-1 ring-red-500' : 'ring-1 ring-black/10'}`}>
-                      <svg aria-hidden className="h-5 w-5 text-[#383330]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <div
+                      className={`flex items-center gap-3 bg-white/80 rounded-md px-3 py-2 shadow-sm ${
+                        touched.name && !nameValid
+                          ? "ring-1 ring-red-500"
+                          : "ring-1 ring-black/10"
+                      }`}
+                    >
+                      <svg
+                        aria-hidden
+                        className="h-5 w-5 text-[#383330]"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
                         <circle cx="12" cy="7" r="4" />
                         <path d="M5 21v-2a7 7 0 0114 0v2" />
                       </svg>
@@ -67,7 +94,7 @@ export default function Contact() {
                         placeholder="Seu Nome"
                         value={name}
                         onChange={handleNameChange}
-                        onBlur={() => setTouched(s => ({ ...s, name: true }))}
+                        onBlur={() => setTouched((s) => ({ ...s, name: true }))}
                         inputMode="text"
                         autoComplete="name"
                         aria-invalid={touched.name && !nameValid}
@@ -75,12 +102,29 @@ export default function Contact() {
                       />
                     </div>
                     {touched.name && !nameValid && (
-                      <p className="mt-1 text-xs text-red-600">Informe um nome válido (apenas letras e espaços).</p>
+                      <p className="mt-1 text-xs text-red-600">
+                        Informe um nome válido (apenas letras e espaços).
+                      </p>
                     )}
                   </label>
                   <label className="block">
-                    <div className={`flex items-center gap-3 bg-white/80 rounded-md px-3 py-2 shadow-sm ${touched.email && !emailValid ? 'ring-1 ring-red-500' : 'ring-1 ring-black/10'}`}>
-                      <svg aria-hidden className="h-5 w-5 text-[#383330]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <div
+                      className={`flex items-center gap-3 bg-white/80 rounded-md px-3 py-2 shadow-sm ${
+                        touched.email && !emailValid
+                          ? "ring-1 ring-red-500"
+                          : "ring-1 ring-black/10"
+                      }`}
+                    >
+                      <svg
+                        aria-hidden
+                        className="h-5 w-5 text-[#383330]"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
                         <rect x="3" y="5" width="18" height="14" rx="2" />
                         <path d="M3 7l9 6 9-6" />
                       </svg>
@@ -89,7 +133,9 @@ export default function Contact() {
                         placeholder="Seu E-mail"
                         value={email}
                         onChange={handleEmailChange}
-                        onBlur={() => setTouched(s => ({ ...s, email: true }))}
+                        onBlur={() =>
+                          setTouched((s) => ({ ...s, email: true }))
+                        }
                         inputMode="email"
                         autoComplete="email"
                         aria-invalid={touched.email && !emailValid}
@@ -97,12 +143,29 @@ export default function Contact() {
                       />
                     </div>
                     {touched.email && !emailValid && (
-                      <p className="mt-1 text-xs text-red-600">E-mail inválido. Ex.: nome@dominio.com</p>
+                      <p className="mt-1 text-xs text-red-600">
+                        E-mail inválido. Ex.: nome@dominio.com
+                      </p>
                     )}
                   </label>
                   <label className="block">
-                    <div className={`flex items-center gap-3 bg-white/80 rounded-md px-3 py-2 shadow-sm ${touched.phone && !phoneValid ? 'ring-1 ring-red-500' : 'ring-1 ring-black/10'}`}>
-                      <svg aria-hidden className="h-5 w-5 text-[#383330]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <div
+                      className={`flex items-center gap-3 bg-white/80 rounded-md px-3 py-2 shadow-sm ${
+                        touched.phone && !phoneValid
+                          ? "ring-1 ring-red-500"
+                          : "ring-1 ring-black/10"
+                      }`}
+                    >
+                      <svg
+                        aria-hidden
+                        className="h-5 w-5 text-[#383330]"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
                         <rect x="7" y="2" width="10" height="20" rx="2" />
                         <path d="M10 18h4" />
                       </svg>
@@ -111,7 +174,9 @@ export default function Contact() {
                         placeholder="Celular"
                         value={phone}
                         onChange={handlePhoneChange}
-                        onBlur={() => setTouched(s => ({ ...s, phone: true }))}
+                        onBlur={() =>
+                          setTouched((s) => ({ ...s, phone: true }))
+                        }
                         inputMode="numeric"
                         autoComplete="tel"
                         aria-invalid={touched.phone && !phoneValid}
@@ -119,7 +184,9 @@ export default function Contact() {
                       />
                     </div>
                     {touched.phone && !phoneValid && (
-                      <p className="mt-1 text-xs text-red-600">Celular inválido. Use DDD e 10–11 dígitos.</p>
+                      <p className="mt-1 text-xs text-red-600">
+                        Celular inválido. Use DDD e 10–11 dígitos.
+                      </p>
                     )}
                   </label>
                   <button

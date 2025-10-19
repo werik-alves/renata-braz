@@ -5,7 +5,7 @@ import { buildWhatsappLinkPlanosValores } from "../lib/links";
 export default function Plans() {
   const whatsappLinkPlanosValores = buildWhatsappLinkPlanosValores();
   return (
-    <section id="plans" className="py-20">
+    <section id="valores" className="py-20">
       <div className="mx-auto max-w-6xl px-4">
         <div className="rounded-2xl bg-[#2F2926] p-4 sm:p-6 md:p-8">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-center text-[#F1EDE4]">Planos & Valores</h2>

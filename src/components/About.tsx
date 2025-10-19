@@ -3,7 +3,7 @@ import { linkSaibaMais } from "@/lib/links";
 export default function About() {
   return (
     <section
-      id="about"
+      id="sobre"
       className="py-20 mx-auto max-w-6xl px-4 grid grid-cols-1 gap-2 md:grid-cols-2"
     >
       <div className="mx-auto max-w-6xl px-4">
