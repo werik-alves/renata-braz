@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { iconeValores } from "../lib/assets";
+import { buildWhatsappLinkPlanosValores } from "../lib/links";
 
 export default function Plans() {
+  const whatsappLinkPlanosValores = buildWhatsappLinkPlanosValores();
   return (
     <section id="plans" className="py-20">
       <div className="mx-auto max-w-6xl px-4">
@@ -17,7 +19,25 @@ export default function Plans() {
                 <span className="text-[#383330] text-xl sm:text-2xl md:text-3xl font-semibold">,00</span>
               </div>
               <div className="text-[#383330] text-xs sm:text-sm font-semibold text-end">/mês</div>
-              <button className="mt-2 bg-[#383330] text-white px-4 py-2 rounded-lg text-sm font-semibold">Entre em contato</button>
+              {whatsappLinkPlanosValores ? (
+                <a
+                  href={whatsappLinkPlanosValores}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 bg-[#383330] text-white px-4 py-2 rounded-lg text-sm font-semibold text-center"
+                  aria-label="Abrir WhatsApp para Planos e Valores"
+                >
+                  Entre em contato
+                </a>
+              ) : (
+                <button
+                  className="mt-2 bg-[#383330] text-white px-4 py-2 rounded-lg text-sm font-semibold opacity-60 cursor-not-allowed"
+                  disabled
+                  aria-label="WhatsApp não configurado"
+                >
+                  Entre em contato
+                </button>
+              )}
             </div>
             <div className="w-full flex flex-col gap-3 sm:gap-4">
               <div className="flex items-start gap-3">
@@ -52,6 +72,6 @@ export default function Plans() {
           </div>
         </div>
       </div>
-      </section>
+    </section>
   );
 }

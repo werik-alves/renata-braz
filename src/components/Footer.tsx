@@ -1,7 +1,10 @@
 import Image from 'next/image';
+import { buildWhatsappLink } from '../lib/links';
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const whatsappHref = buildWhatsappLink();
+
   return (
     <footer className="w-full bg-[#383330] text-[#F1EDE4] py-10 mt-6">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-8 justify-center items-center">
@@ -18,7 +21,19 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm md:text-base">
               <li className="flex items-center gap-3">
                 <Image src="/assets/wapp.png" alt="WhatsApp" width={20} height={20} className="w-5 h-5" />
-                <span>WhatsApp</span>
+                {whatsappHref ? (
+                  <a
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                    aria-label="Abrir conversa no WhatsApp"
+                  >
+                    WhatsApp
+                  </a>
+                ) : (
+                  <span>WhatsApp</span>
+                )}
               </li>
               <li className="flex items-center gap-3">
                 <Image src="/assets/instagram.png" alt="Instagram" width={20} height={20} className="w-5 h-5" />
@@ -26,7 +41,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Image src="/assets/email.png" alt="E-mail" width={20} height={20} className="w-5 h-5" />
-                <a href="mailto:contato@escritoriorenatabraz.com.br" className="hover:underline">contato@escritoriorenatabraz.com.br</a>
+                <a href="mailto:contato@escritoriorenatabraz.com.br" className="hover:underline">contato@confluicontabilidade.com.br</a>
               </li>
             </ul>
           </div>
