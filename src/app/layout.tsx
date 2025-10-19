@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import WhatsappFloat from "../components/WhatsappFloat";
 
 export const metadata: Metadata = {
   title: "Renata Braz",
@@ -19,6 +20,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <WhatsappFloat />
       </body>
     </html>
   );
