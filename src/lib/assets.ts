@@ -20,8 +20,6 @@ export const emissao = "/assets/emissao.png";
 export const relacionamento = "/assets/relacionamento.png";
 export const img_email = "/assets/img_email.png";
 
-
-
 export function byNodeId(nodeId: string): string {
   return `/assets/figma/${nodeId.replace(":", "_")}.png`;
 }

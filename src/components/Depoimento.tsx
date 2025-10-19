@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 type Testimonial = {
   quote: string;
@@ -11,20 +11,20 @@ const testimonials: Testimonial[] = [
   {
     quote:
       '"Nada melhor que uma contadora com um profissionalismo refinado e um olhar atencioso para o seu negócio. A Renata me ajuda a organizar e deixar as coisas da minha empresa mais fluídas. Tira dúvidas e está sempre disposta a ajudar. Obrigada, Renata, por estar comigo nessa. Profissional excelente, eu recomendo com orgulho."',
-    author: 'Cris',
-    role: 'Dona da Barbershop Art',
+    author: "Cris",
+    role: "Dona da Barbershop Art",
   },
   {
     quote:
       '"Ter a Renata como parceira tem sido essencial para manter minha empresa organizada e em conformidade com todas as obrigações burocráticas. Desde que comecei minha jornada como MEI, ela me apoia em todas as etapas com profissionalismo e atenção aos detalhes, sempre orientando sobre prazos, tributações e mudanças legais que impactam o meu negócio. Recomendo seu trabalho a qualquer empreendedor que busca tranquilidade e eficiência em sua contabilidade!"',
-    author: 'Ravena Souza',
-    role: 'Dona da Ravena Design',
+    author: "Ravena Souza",
+    role: "Dona da Ravena Design",
   },
   {
     quote:
       '"Ter a Renata como parceira tem sido essencial para manter minha empresa organizada e em conformidade com todas as obrigações burocráticas. Desde que comecei minha jornada como MEI, ela me apoia em todas as etapas com profissionalismo e atenção aos detalhes, sempre orientando sobre prazos, tributações e mudanças legais que impactam o meu negócio. Recomendo seu trabalho a qualquer empreendedor que busca tranquilidade e eficiência em sua contabilidade!"',
-    author: 'Ravena Souza',
-    role: 'Dona da Ravena Design',
+    author: "Ravena Souza",
+    role: "Dona da Ravena Design",
   },
   // Adicione novos depoimentos aqui, basta incluir objetos no array
 ];
@@ -38,8 +38,8 @@ export default function Depoimento() {
   useEffect(() => {
     const update = () => setItemsPerPage(window.innerWidth >= 768 ? 2 : 1);
     update();
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
   const pages = Math.ceil(testimonials.length / itemsPerPage);
@@ -48,7 +48,7 @@ export default function Depoimento() {
     const el = trackRef.current;
     if (!el) return;
     const next = Math.max(0, Math.min(target, pages - 1));
-    el.scrollTo({ left: next * el.clientWidth, behavior: 'smooth' });
+    el.scrollTo({ left: next * el.clientWidth, behavior: "smooth" });
     setPage(next);
   };
 
@@ -59,8 +59,8 @@ export default function Depoimento() {
       const p = Math.round(el.scrollLeft / el.clientWidth);
       setPage(p);
     };
-    el.addEventListener('scroll', onScroll);
-    return () => el.removeEventListener('scroll', onScroll);
+    el.addEventListener("scroll", onScroll);
+    return () => el.removeEventListener("scroll", onScroll);
   }, [itemsPerPage]);
 
   useEffect(() => {
@@ -74,8 +74,12 @@ export default function Depoimento() {
   return (
     <section id="depoimentos" className="py-20">
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-3xl md:text-4xl font-semibold text-[#383330] text-center">Depoimentos</h2>
-        <p className="mt-2 text-center text-[#383330] text-base md:text-lg">Saiba o que nossos clientes estão dizendo sobre nossa empresa</p>
+        <h2 className="text-3xl md:text-4xl font-semibold text-[#383330] text-center">
+          Depoimentos
+        </h2>
+        <p className="mt-2 text-center text-[#383330] text-base md:text-lg">
+          Saiba o que nossos clientes estão dizendo sobre nossa empresa
+        </p>
         {/* setas */}
         <div className="relative mt-8">
           <button
@@ -97,7 +101,9 @@ export default function Depoimento() {
             {testimonials.map((t, i) => (
               <div key={i} className="snap-center flex-none w-full md:w-1/2">
                 <div className="bg-[#383330] text-[#F1EDE4] rounded-2xl p-5 md:p-8 mr-4 shadow-lg ring-1 ring-black/10 flex flex-col justify-center h-[400px] md:h-[340px]">
-                  <p className="text-sm md:text-base leading-relaxed">{t.quote}</p>
+                  <p className="text-sm md:text-base leading-relaxed">
+                    {t.quote}
+                  </p>
                   <div className="mt-6 text-center">
                     <p className="font-semibold">{t.author}</p>
                     <p className="text-sm opacity-90">{t.role}</p>
@@ -122,7 +128,9 @@ export default function Depoimento() {
               key={i}
               aria-label={`Ir para página ${i + 1}`}
               onClick={() => scrollToPage(i)}
-              className={`w-3 h-3 rounded-full ${i === page ? 'bg-[#383330]' : 'bg-[#383330]/30'}`}
+              className={`w-3 h-3 rounded-full ${
+                i === page ? "bg-[#383330]" : "bg-[#383330]/30"
+              }`}
             />
           ))}
         </div>
