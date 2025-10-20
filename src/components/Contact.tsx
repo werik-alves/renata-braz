@@ -63,14 +63,14 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
             {/* Card de formulário */}
             <div className="flex justify-center md:justify-start">
-              <div className="w-full max-w-sm bg-[#F1EDE4] rounded-lg shadow-lg ring-1 ring-black/10 p-14">
+              <div className="w-full max-w-md bg-[#F1EDE4] rounded-lg shadow-lg ring-1 ring-black/10 p-6 sm:p-8 md:p-10">
                 <h3 className="text-[#50341F] font-semibold text-lg mb-5">
                   Faça seu orçamento
                 </h3>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <label className="block">
                     <div
-                      className={`flex items-center gap-3 bg-white/80 rounded-md px-3 py-2 shadow-sm ${
+                      className={`flex items-center gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ${
                         touched.name && !nameValid
                           ? "ring-1 ring-red-500"
                           : "ring-1 ring-black/10"
@@ -98,7 +98,7 @@ export default function Contact() {
                         inputMode="text"
                         autoComplete="name"
                         aria-invalid={touched.name && !nameValid}
-                        className="flex-1 bg-transparent outline-none text-[#383330] placeholder-[#383330]/70"
+                        className="min-w-0 flex-1 bg-transparent outline-none text-[#383330] placeholder-[#383330]/70 text-base"
                       />
                     </div>
                     {touched.name && !nameValid && (
@@ -109,7 +109,7 @@ export default function Contact() {
                   </label>
                   <label className="block">
                     <div
-                      className={`flex items-center gap-3 bg-white/80 rounded-md px-3 py-2 shadow-sm ${
+                      className={`flex items-center gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ${
                         touched.email && !emailValid
                           ? "ring-1 ring-red-500"
                           : "ring-1 ring-black/10"
@@ -139,7 +139,7 @@ export default function Contact() {
                         inputMode="email"
                         autoComplete="email"
                         aria-invalid={touched.email && !emailValid}
-                        className="flex-1 bg-transparent outline-none text-[#383330] placeholder-[#383330]/70"
+                        className="min-w-0 flex-1 bg-transparent outline-none text-[#383330] placeholder-[#383330]/70 text-base"
                       />
                     </div>
                     {touched.email && !emailValid && (
@@ -150,7 +150,7 @@ export default function Contact() {
                   </label>
                   <label className="block">
                     <div
-                      className={`flex items-center gap-3 bg-white/80 rounded-md px-3 py-2 shadow-sm ${
+                      className={`flex items-center gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ${
                         touched.phone && !phoneValid
                           ? "ring-1 ring-red-500"
                           : "ring-1 ring-black/10"
@@ -180,7 +180,7 @@ export default function Contact() {
                         inputMode="numeric"
                         autoComplete="tel"
                         aria-invalid={touched.phone && !phoneValid}
-                        className="flex-1 bg-transparent outline-none text-[#383330] placeholder-[#383330]/70"
+                        className="min-w-0 flex-1 bg-transparent outline-none text-[#383330] placeholder-[#383330]/70 text-base"
                       />
                     </div>
                     {touched.phone && !phoneValid && (
@@ -192,7 +192,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={!formValid}
-                    className="w-full bg-[#50341F] hover:bg-[#4A362D] text-white rounded-md py-2 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-[#50341F] hover:bg-[#4A362D] text-white rounded-md py-3 font-medium text-base disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Enviar
                   </button>
