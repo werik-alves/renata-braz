@@ -1,15 +1,30 @@
+"use client";
 /* eslint-disable @next/next/no-img-element */
 import { linkSaibaMais } from "@/lib/links";
+import { motion } from "framer-motion";
+
 export default function About() {
   return (
     <section
       id="sobre"
       className="py-20 mx-auto max-w-6xl px-4 grid grid-cols-1 gap-2 md:grid-cols-2"
     >
-      <div className="mx-auto max-w-6xl px-4">
+      <motion.div
+        className="mx-auto max-w-6xl px-4"
+        initial={{ opacity: 0, x: 24 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.12 }}
+      >
         <img src="/assets/renata.png" alt="" />
-      </div>
-      <div className="flex flex-col justify-center bg-[#B3A79B] w-full p-4 h-full rounded-md">
+      </motion.div>
+      <motion.div
+        className="flex flex-col justify-center bg-[#B3A79B] w-full p-4 h-full rounded-md"
+        initial={{ opacity: 0, x: 24 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
+      >
         <h2 className="text-2xl font-semibold text-[#50341F] self-center">
           Quem esta por trás
         </h2>
@@ -31,7 +46,7 @@ export default function About() {
             </a>
           )}
         </button>
-      </div>
+      </motion.div>
     </section>
   );
 }

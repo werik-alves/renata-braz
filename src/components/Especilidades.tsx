@@ -1,26 +1,47 @@
+"use client";
 /* eslint-disable react/no-unescaped-entities */
 import { linkAcessoriaMei } from "@/lib/links";
 import { linkAcessoriaMensal } from "@/lib/links";
 import { linkRegularizacao } from "@/lib/links";
 import { linkAberturaCnpj } from "@/lib/links";
+import { motion } from "framer-motion";
+
 export default function Especilidades() {
   return (
     <section id="services" className="py-20">
       <div className="mx-auto max-w-6xl px-4">
         <div className="rounded-2xl bg-[#2F2926] p-6 md:p-8">
-          <h2 className="text-2xl md:text-3xl font-semibold text-center text-[#F1EDE4]">
+          <motion.h2
+            className="text-2xl md:text-3xl font-semibold text-center text-[#F1EDE4]"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
+          >
             Especialidades
-          </h2>
+          </motion.h2>
 
-          <div className="mx-auto mt-4 w-full max-w-[640px] rounded-md bg-[#F1EDE4] px-4 py-3 text-center">
+          <motion.div
+            className="mx-auto mt-4 w-full max-w-[640px] rounded-md bg-[#F1EDE4] px-4 py-3 text-center"
+            initial={{ opacity: 0, y: -16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.12 }}
+          >
             <p className="text-sm md:text-base text-[#383330] px-8 md:px-14">
               "Soluções contábeis personalizadas para atender às necessidades
               específicas do seu negócio"
             </p>
-          </div>
+          </motion.div>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
-            <div className="relative pb-1 cursor-pointer">
+            <motion.div
+              className="relative pb-1 cursor-pointer"
+              initial={{ opacity: 0, y: -14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.24 }}
+            >
               <div className="bg-[#F1EDE4] rounded-2xl p-6 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">
                   Assessoria Mensal
@@ -39,9 +60,15 @@ export default function Especilidades() {
                   </a>
                 )}
               </button>
-            </div>
+            </motion.div>
 
-            <div className="relative pb-6 cursor-pointer">
+            <motion.div
+              className="relative pb-6 cursor-pointer"
+              initial={{ opacity: 0, y: -14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.32 }}
+            >
               <div className="bg-[#F1EDE4] rounded-2xl p-9.5 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">
                   Assessoria MEI
@@ -58,9 +85,15 @@ export default function Especilidades() {
                   </a>
                 )}
               </button>
-            </div>
+            </motion.div>
 
-            <div className="relative pb-1 cursor-pointer">
+            <motion.div
+              className="relative pb-1 cursor-pointer"
+              initial={{ opacity: 0, y: -14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.40 }}
+            >
               <div className="bg-[#F1EDE4] rounded-2xl p-6 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">
                   Regularizações de
@@ -79,9 +112,15 @@ export default function Especilidades() {
                   </a>
                 )}
               </button>
-            </div>
+            </motion.div>
 
-            <div className="relative pb-6 cursor-pointer">
+            <motion.div
+              className="relative pb-6 cursor-pointer"
+              initial={{ opacity: 0, y: -14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.48 }}
+            >
               <div className="bg-[#F1EDE4] rounded-2xl p-9.5 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">
                   Abertura de CNPJ
@@ -98,7 +137,7 @@ export default function Especilidades() {
                   </a>
                 )}
               </button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
