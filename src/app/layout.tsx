@@ -5,8 +5,16 @@ import Footer from "../components/Footer";
 import WhatsappFloat from "../components/WhatsappFloat";
 
 export const metadata: Metadata = {
-  title: "Renata Braz",
-  description: "Site oficial Renata Braz",
+  title: "Conflui Contabilidade",
+  description: "Site oficial Conflui Contabilidade",
+  icons: {
+    icon: [
+      { url: "/icon.png", sizes: "any" },
+      { url: "/assets/icon.png", type: "image/png", sizes: "32x32" },
+      { url: "/assets/icon.png", type: "image/png", sizes: "64x64" },
+    ],
+    apple: [{ url: "/assets/icon.png", type: "image/png", sizes: "180x180" }],
+  },
 };
 
 export default function RootLayout({

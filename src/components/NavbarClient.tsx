@@ -55,7 +55,7 @@ export default function NavbarClient({
             <Image
               src={assets.logo}
               alt="Logo"
-              width={50}
+              width={40}
               height={40}
               priority
             />

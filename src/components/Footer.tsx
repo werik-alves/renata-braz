@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import { buildWhatsappLink } from '../lib/links';
+import Image from "next/image";
+import { buildWhatsappLink } from "../lib/links";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -10,7 +10,13 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-8 justify-center items-center">
         {/* Logo acima das duas colunas (todas as larguras) */}
         <div className="flex justify-center items-center mb-6 md:mb-8">
-          <Image src="/assets/logoMaior.png" alt="Logo" width={80} height={80} className="w-16 h-16" />
+          <Image
+            src="/assets/hero.png"
+            alt="Logo"
+            width={400}
+            height={300}
+            className="w-50 h-24 object-contain md:w-40 md:h-24"
+          />
         </div>
 
         {/* Duas colunas abaixo do logo */}
@@ -20,7 +26,13 @@ export default function Footer() {
             <h3 className="font-semibold text-2xl md:text-3xl">Fale conosco</h3>
             <ul className="mt-4 space-y-3 text-sm md:text-base">
               <li className="flex items-center gap-3">
-                <Image src="/assets/wapp.png" alt="WhatsApp" width={20} height={20} className="w-5 h-5" />
+                <Image
+                  src="/assets/wapp.png"
+                  alt="WhatsApp"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
                 {whatsappHref ? (
                   <a
                     href={whatsappHref}
@@ -36,12 +48,29 @@ export default function Footer() {
                 )}
               </li>
               <li className="flex items-center gap-3">
-                <Image src="/assets/instagram.png" alt="Instagram" width={20} height={20} className="w-5 h-5" />
+                <Image
+                  src="/assets/instagram.png"
+                  alt="Instagram"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
                 <span>Instagram</span>
               </li>
               <li className="flex items-center gap-3">
-                <Image src="/assets/email.png" alt="E-mail" width={20} height={20} className="w-5 h-5" />
-                <a href="mailto:contato@escritoriorenatabraz.com.br" className="hover:underline">contato@confluicontabilidade.com.br</a>
+                <Image
+                  src="/assets/email.png"
+                  alt="E-mail"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
+                <a
+                  href="mailto:contato@escritoriorenatabraz.com.br"
+                  className="hover:underline"
+                >
+                  contato@confluicontabilidade.com.br
+                </a>
               </li>
             </ul>
           </div>
@@ -53,7 +82,10 @@ export default function Footer() {
               <p>RENATA BRAZ CONTABILIDADE DIGITAL LTDA</p>
               <p>CRCCE - 003531/O-0</p>
               <p>CNPJ: 54.151.365.0001/46</p>
-              <p>Endereço: R. Sen. Pompeu, 834 - 60025-000 sala 415 - Centro, Fortaleza - CE, 60000-060</p>
+              <p>
+                Endereço: R. Sen. Pompeu, 834 - 60025-000 sala 415 - Centro,
+                Fortaleza - CE, 60000-060
+              </p>
             </div>
           </div>
         </div>

@@ -1,15 +1,41 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
 import { acessoria, comunicacao, emissao, relacionamento } from "@/lib/assets";
 import { buildWhatsappLinkDiferenciais } from "@/lib/links";
+import { motion } from "framer-motion";
 export default function Services() {
+  const containerVariants = {
+    hidden: { opacity: 0, y: 12 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.12, delayChildren: 0.1 },
+    },
+  };
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
   return (
     <section id="services" className="py-20">
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-3xl md:text-4xl font-semibold text-[#383330] text-center">
+        <motion.h2
+          className="text-3xl md:text-4xl font-semibold text-[#383330] text-center"
+          initial={{ opacity: 0, y: -16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           Diferenciais
-        </h2>
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-20">
-          <div className="flex flex-col gap-3">
+        </motion.h2>
+        <motion.div
+          className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-20"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <motion.div className="flex flex-col gap-3" variants={itemVariants}>
             <div className="flex items-start gap-3">
               <img src={acessoria} alt="" className="h-8 w-8 object-contain" />
               <h3 className="text-lg md:text-xl font-semibold text-[#383330]">
@@ -23,8 +49,8 @@ export default function Services() {
                 trabalhe a favor do seu negócio.
               </p>
             </div>
-          </div>
-          <div className="flex flex-col gap-3">
+          </motion.div>
+          <motion.div className="flex flex-col gap-3" variants={itemVariants}>
             <div className="flex items-start gap-3">
               <img src={emissao} alt="" className="h-8 w-8 object-contain" />
               <h3 className="text-lg md:text-xl font-semibold text-[#383330]">
@@ -38,8 +64,8 @@ export default function Services() {
                 tomada de decisões estratégicas.
               </p>
             </div>
-          </div>
-          <div className="flex flex-col gap-3">
+          </motion.div>
+          <motion.div className="flex flex-col gap-3" variants={itemVariants}>
             <div className="flex items-start gap-3">
               <img
                 src={comunicacao}
@@ -57,8 +83,8 @@ export default function Services() {
                 contábil e possa tomar decisões informadas.
               </p>
             </div>
-          </div>
-          <div className="flex flex-col gap-3">
+          </motion.div>
+          <motion.div className="flex flex-col gap-3" variants={itemVariants}>
             <div className="flex items-start gap-3">
               <img
                 src={relacionamento}
@@ -76,18 +102,28 @@ export default function Services() {
                 necessidades específicas.
               </p>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         <div className="mt-12 flex justify-center">
           {buildWhatsappLinkDiferenciais() && (
-            <a
+            <motion.a
               href={buildWhatsappLinkDiferenciais() ?? undefined}
               target="_blank"
               rel="noopener noreferrer"
-              className=" text-[#383330] px-6 py-2 rounded-full text-sm md:text-base font-bold tracking-wide cursor-pointer"
+              className="text-[#383330] px-6 py-2 rounded-full text-sm md:text-base font-bold tracking-wide cursor-pointer z-40 pointer-events-auto"
+              initial={{ opacity: 0, y: 10, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const href = buildWhatsappLinkDiferenciais();
+                if (href) window.open(href, "_blank");
+              }}
             >
               CONHEÇA TODOS NOSSOS DIFERENCIAIS
-            </a>
+            </motion.a>
           )}
         </div>
       </div>

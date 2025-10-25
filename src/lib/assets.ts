@@ -1,7 +1,6 @@
 export const assets = {
-  logo: "/assets/logo.png",
+  logo: "/assets/logonavbar.png",
   hero: "/assets/hero.jpg",
-  logoMaior: "/assets/logoMaior.png",
   users: "/assets/users.svg",
   world: "/assets/world.png",
   time: "/assets/time.png",

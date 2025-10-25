@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -16,14 +16,17 @@ export default function Hero() {
       {/* Conteúdo na frente, centralizado */}
       <div className="relative z-10 mx-auto max-w-6xl w-full flex flex-col items-center text-center gap-4">
         <Image
-          src="/assets/logoMaior.png"
+          src="/assets/hero.png"
           alt="Logo"
-          width={160}
-          height={100}
+          width={400}
+          height={300}
           className="object-contain"
         />
-        <h1 className="text-3xl font-bold tracking-tight md:text-4xl">Contabilidade Digital</h1>
-        <p className="mt-2 text-lg text-[#FFFFFF]">Para profissionais que querem legalizar seus sonhos e economizar impostos.</p>
+
+        <h1 className="mt-2 text-lg text-[#FFFFFF]">
+          Para profissionais que querem legalizar seus sonhos e economizar
+          impostos.
+        </h1>
       </div>
     </section>
   );
