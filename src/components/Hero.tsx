@@ -23,9 +23,9 @@ export default function Hero() {
           className="object-contain"
         />
 
-        <h1 className="mt-2 text-lg text-[#FFFFFF]">
-          Para profissionais que querem legalizar seus sonhos e economizar
-          impostos.
+        <h1 className="mt-2 text-lg text-[#F1EDE4]">
+          Para profissionais que querem legalizar seus sonhos e <br />
+          economizar impostos.
         </h1>
       </div>
     </section>
