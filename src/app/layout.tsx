@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Site oficial Conflui Contabilidade",
   icons: {
     icon: [
-      { url: "/icon.png", sizes: "any" },
+      { url: "/assets/icon.png", type: "image/png", sizes: "any" },
       { url: "/assets/icon.png", type: "image/png", sizes: "32x32" },
       { url: "/assets/icon.png", type: "image/png", sizes: "64x64" },
     ],
