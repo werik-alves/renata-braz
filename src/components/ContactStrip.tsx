@@ -8,14 +8,18 @@ import { DURATION_BASE, EASE_DEFAULT, seqDelay } from "@/lib/animation";
 export default function ContactStrip() {
   return (
     <section className="relative z-20 -mt-12 md:-mt-16 py-6">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-6xl px-4 sm:mt-11 md:mt-0 mt-11">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
           <motion.div
-            className="flex items-center gap-1 bg-[#B3A79B]"
+            className="flex items-center gap-1 bg-[#B3A79B] shadow-lg"
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(0) }}
+            transition={{
+              duration: DURATION_BASE,
+              ease: EASE_DEFAULT,
+              delay: seqDelay(0),
+            }}
           >
             <div className="relative w-28 h-28 flex items-center justify-center">
               <Image
@@ -33,11 +37,15 @@ export default function ContactStrip() {
             </div>
           </motion.div>
           <motion.div
-            className="flex items-center gap-1 bg-[#F1EDE4]"
+            className="flex items-center gap-1 bg-[#F1EDE4] shadow-lg"
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(1) }}
+            transition={{
+              duration: DURATION_BASE,
+              ease: EASE_DEFAULT,
+              delay: seqDelay(1),
+            }}
           >
             <div className="relative w-28 h-28 flex items-center justify-center">
               <Image
@@ -55,11 +63,15 @@ export default function ContactStrip() {
             </div>
           </motion.div>
           <motion.div
-            className="flex items-center gap-1 bg-[#B3A79B]"
+            className="flex items-center gap-1 bg-[#B3A79B] shadow-lg"
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(2) }}
+            transition={{
+              duration: DURATION_BASE,
+              ease: EASE_DEFAULT,
+              delay: seqDelay(2),
+            }}
           >
             <div className="relative w-28 h-28 flex items-center justify-center">
               <Image

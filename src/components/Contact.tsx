@@ -7,17 +7,26 @@ export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
   const [touched, setTouched] = useState({
     name: false,
     email: false,
     phone: false,
+    message: false,
   });
 
   const nameValid = /^[A-Za-zÀ-ÿ'\s]{2,}$/.test(name.trim());
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
   const phoneDigits = phone.replace(/\D/g, "");
   const phoneValid = phoneDigits.length === 10 || phoneDigits.length === 11;
-  const formValid = nameValid && emailValid && phoneValid;
+  const messageValid = message.trim().length >= 10;
+  const formValid = nameValid && emailValid && phoneValid && messageValid;
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const sanitized = String(e.target.value).replace(/[^A-Za-zÀ-ÿ'\s]/g, "");
@@ -49,12 +58,53 @@ export default function Contact() {
     setPhone(formatted);
   };
 
+  // Ajuste para textarea
+  const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMessage(String(e.target.value));
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setTouched({ name: true, email: true, phone: true });
+    setTouched({ name: true, email: true, phone: true, message: true });
+    setSubmitError(null);
     if (!formValid) return;
-    // Aqui você pode integrar com seu backend/serviço de envio
-    console.log({ name, email, phone: phoneDigits });
+    setIsSubmitting(true);
+
+    const base = (process.env.NEXT_PUBLIC_API_BASE_URL || "").replace(
+      /\/$/,
+      ""
+    );
+    const endpoint = base ? `${base}/contact` : "/api/contact";
+
+    fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        email,
+        phone: phoneDigits,
+        message,
+      }),
+    })
+      .then(async (res) => {
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data?.ok === false) {
+          throw new Error(data?.error || "Falha ao enviar mensagem.");
+        }
+        setSubmitStatus("success");
+        setName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+        setTouched({ name: false, email: false, phone: false, message: false });
+      })
+      .catch((err) => {
+        setSubmitStatus("error");
+        setSubmitError(err.message || "Erro inesperado.");
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
   return (
     <section id="contact" className="py-16">
@@ -65,7 +115,7 @@ export default function Contact() {
             <div className="flex justify-center md:justify-start">
               <div className="w-full max-w-md bg-[#F1EDE4] rounded-lg shadow-lg ring-1 ring-black/10 p-6 sm:p-8 md:p-10">
                 <h3 className="text-[#50341F] font-semibold text-lg mb-5">
-                  Faça seu orçamento
+                  Solicite seu orçamento
                 </h3>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <label className="block">
@@ -148,6 +198,47 @@ export default function Contact() {
                       </p>
                     )}
                   </label>
+                  {/* Mensagem ajustada para textarea e ícone adequado */}
+                  <label className="block">
+                    <div
+                      className={`flex items-start gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ${
+                        touched.message && !messageValid
+                          ? "ring-1 ring-red-500"
+                          : "ring-1 ring-black/10"
+                      }`}
+                    >
+                      <svg
+                        aria-hidden
+                        className="h-5 w-5 text-[#383330] mt-1"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M21 15a4 4 0 01-4 4H8l-5 3V5a4 4 0 014-4h10a4 4 0 014 4v10z" />
+                        <path d="M7 8h10M7 12h8" />
+                      </svg>
+                      <textarea
+                        placeholder="Sua mensagem"
+                        value={message}
+                        onChange={handleMessageChange}
+                        onBlur={() =>
+                          setTouched((s) => ({ ...s, message: true }))
+                        }
+                        rows={4}
+                        autoComplete="off"
+                        aria-invalid={touched.message && !messageValid}
+                        className="min-w-0 flex-1 bg-transparent outline-none text-[#383330] placeholder-[#383330]/70 text-base resize-y"
+                      />
+                    </div>
+                    {touched.message && !messageValid && (
+                      <p className="mt-1 text-xs text-red-600">
+                        Mensagem inválida. Mínimo 10 caracteres.
+                      </p>
+                    )}
+                  </label>
                   <label className="block">
                     <div
                       className={`flex items-center gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ${
@@ -191,11 +282,21 @@ export default function Contact() {
                   </label>
                   <button
                     type="submit"
-                    disabled={!formValid}
+                    disabled={!formValid || isSubmitting}
                     className="w-full bg-[#50341F] hover:bg-[#4A362D] text-white rounded-md py-3 font-medium text-base disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Enviar
+                    {isSubmitting ? "Enviando..." : "Enviar"}
                   </button>
+                  {submitStatus === "success" && (
+                    <p className="mt-2 text-sm text-green-700">
+                      Mensagem enviada com sucesso!
+                    </p>
+                  )}
+                  {submitStatus === "error" && (
+                    <p className="mt-2 text-sm text-red-700">
+                      {submitError || "Não foi possível enviar."}
+                    </p>
+                  )}
                 </form>
               </div>
             </div>
