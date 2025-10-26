@@ -48,7 +48,7 @@ export default function NavbarClient({
   );
 
   return (
-    <nav className="w-full bg-[#383330] text-[#F1EDE4]">
+    <nav className="bg-[#383330] text-[#F1EDE4] w-full sticky top-0 md:fixed md:left-0 md:right-0 z-50 pt-[env(safe-area-inset-top)]">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-3">

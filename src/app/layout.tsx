@@ -23,6 +23,11 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/assets/icon.png", type: "image/png", sizes: "180x180" }],
   },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    viewportFit: "cover",
+  },
 };
 
 export default function RootLayout({
@@ -34,7 +39,7 @@ export default function RootLayout({
     <html lang="pt-BR" className={poppins.variable}>
       <body className="bg-background text-foreground antialiased">
         <Navbar />
-        {children}
+        <main className="pt-0 md:pt-16">{children}</main>
         <Footer />
         <WhatsappFloat />
       </body>
