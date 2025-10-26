@@ -10,6 +10,7 @@ import Conteudo from "@/components/Conteudo";
 
 import Script from "next/script";
 import { SITE_NAME, SITE_URL } from "../lib/seo";
+import { buildLocalBusinessJsonLd } from "../lib/business";
 
 export default function Page() {
   const orgJsonLd = {
@@ -37,6 +38,9 @@ export default function Page() {
       </Script>
       <Script id="jsonld-website" type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(websiteJsonLd)}
+      </Script>
+      <Script id="jsonld-localbusiness" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(buildLocalBusinessJsonLd())}
       </Script>
 
       <Hero />
