@@ -3,18 +3,19 @@
 import { acessoria, comunicacao, emissao, relacionamento } from "@/lib/assets";
 import { buildWhatsappLinkDiferenciais } from "@/lib/links";
 import { motion } from "framer-motion";
+import { DURATION_BASE, EASE_DEFAULT, SECTION_STAGGER, SECTION_DELAY_CHILDREN } from "@/lib/animation";
 export default function Services() {
   const containerVariants = {
     hidden: { opacity: 0, y: 12 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.12, delayChildren: 0.1 },
+      transition: { duration: DURATION_BASE, ease: EASE_DEFAULT, staggerChildren: SECTION_STAGGER, delayChildren: SECTION_DELAY_CHILDREN },
     },
   };
   const itemVariants = {
     hidden: { opacity: 0, y: 10 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    show: { opacity: 1, y: 0, transition: { duration: DURATION_BASE, ease: EASE_DEFAULT } },
   };
   return (
     <section id="services" className="py-20">
@@ -24,7 +25,7 @@ export default function Services() {
           initial={{ opacity: 0, y: -16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT }}
         >
           Diferenciais
         </motion.h2>
@@ -114,7 +115,7 @@ export default function Services() {
               initial={{ opacity: 0, y: 10, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: SECTION_STAGGER }}
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();

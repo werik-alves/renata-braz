@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { linkSaibaMais } from "@/lib/links";
 import { motion } from "framer-motion";
+import { DURATION_BASE, EASE_DEFAULT, seqDelay } from "@/lib/animation";
 
 export default function About() {
   return (
@@ -14,7 +15,7 @@ export default function About() {
         initial={{ opacity: 0, x: 24 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.12 }}
+        transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(0) }}
       >
         <img src="/assets/renata.png" alt="" />
       </motion.div>
@@ -23,7 +24,7 @@ export default function About() {
         initial={{ opacity: 0, x: 24 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
+        transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(1) }}
       >
         <h2 className="text-2xl font-semibold text-[#50341F] self-center">
           Quem esta por trás

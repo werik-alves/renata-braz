@@ -5,6 +5,7 @@ import { linkAcessoriaMensal } from "@/lib/links";
 import { linkRegularizacao } from "@/lib/links";
 import { linkAberturaCnpj } from "@/lib/links";
 import { motion } from "framer-motion";
+import { DURATION_BASE, EASE_DEFAULT, SECTION_STAGGER, seqDelay } from "@/lib/animation";
 
 export default function Especilidades() {
   return (
@@ -16,7 +17,7 @@ export default function Especilidades() {
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
+            transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(0) }}
           >
             Especialidades
           </motion.h2>
@@ -26,7 +27,7 @@ export default function Especilidades() {
             initial={{ opacity: 0, y: -16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.12 }}
+            transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(1) }}
           >
             <p className="text-sm md:text-base text-[#383330] px-8 md:px-14">
               "Soluções contábeis personalizadas para atender às necessidades
@@ -40,7 +41,7 @@ export default function Especilidades() {
               initial={{ opacity: 0, y: -14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.24 }}
+              transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(2) }}
             >
               <div className="bg-[#F1EDE4] rounded-2xl p-6 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">
@@ -67,7 +68,7 @@ export default function Especilidades() {
               initial={{ opacity: 0, y: -14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.32 }}
+              transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(3) }}
             >
               <div className="bg-[#F1EDE4] rounded-2xl p-9.5 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">
@@ -92,7 +93,7 @@ export default function Especilidades() {
               initial={{ opacity: 0, y: -14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.40 }}
+              transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(4) }}
             >
               <div className="bg-[#F1EDE4] rounded-2xl p-6 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">
@@ -119,7 +120,7 @@ export default function Especilidades() {
               initial={{ opacity: 0, y: -14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.48 }}
+              transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(5) }}
             >
               <div className="bg-[#F1EDE4] rounded-2xl p-9.5 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">

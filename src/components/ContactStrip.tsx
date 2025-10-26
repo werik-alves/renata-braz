@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { assets } from "../lib/assets";
 import { motion } from "framer-motion";
+import { DURATION_BASE, EASE_DEFAULT, seqDelay } from "@/lib/animation";
 
 export default function ContactStrip() {
   return (
@@ -14,7 +15,7 @@ export default function ContactStrip() {
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
+            transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(0) }}
           >
             <div className="relative w-28 h-28 flex items-center justify-center">
               <Image
@@ -36,7 +37,7 @@ export default function ContactStrip() {
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
+            transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(1) }}
           >
             <div className="relative w-28 h-28 flex items-center justify-center">
               <Image
@@ -58,7 +59,7 @@ export default function ContactStrip() {
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
+            transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(2) }}
           >
             <div className="relative w-28 h-28 flex items-center justify-center">
               <Image
