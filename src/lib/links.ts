@@ -7,6 +7,10 @@ export function sanitizeDigits(input: string): string {
   return String(input || "").replace(/\D/g, "");
 }
 
+export interface InstagramOptions {
+  username?: string; // nome de usuário do Instagram, padrão: contadora.renatabraz
+}
+
 /**
  * Constrói o link da API oficial do WhatsApp.
  * - Usa `NEXT_PUBLIC_WHATSAPP_NUMBER` ou `WHATSAPP_NUMBER` do .env se `phone` não for informado.
@@ -147,4 +151,9 @@ export function linkSaibaMais(opts: WhatsappOptions = {}): string | null {
     "Olá! Gostaria de saber mais sobre o que a Renata Braz pode me oferecer.";
   const encoded = encodeURIComponent(message);
   return `https://api.whatsapp.com/send?phone=${digits}&text=${encoded}`;
+}
+
+export function buildInstagramLink(opts: InstagramOptions = {}): string | null {
+  const username = opts.username ?? "contadora.renatabraz";
+  return `https://www.instagram.com/${username}/?igshid=OGQ5ZDc2ODk2ZA%3D%3D`;
 }

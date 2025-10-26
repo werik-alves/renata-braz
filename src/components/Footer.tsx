@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { buildWhatsappLink } from "../lib/links";
+import { buildWhatsappLink, buildInstagramLink } from "../lib/links";
 
 export default function Footer() {
   const year = new Date().getFullYear();
   const whatsappHref = buildWhatsappLink();
+  const instagramHref = buildInstagramLink();
 
   return (
     <footer className="w-full bg-[#383330] text-[#F1EDE4] py-10 mt-6">
@@ -55,7 +56,19 @@ export default function Footer() {
                   height={20}
                   className="w-5 h-5"
                 />
-                <span>Instagram</span>
+                {instagramHref ? (
+                  <a
+                    href={instagramHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                    aria-label="Abrir perfil no Instagram"
+                  >
+                    Instagram
+                  </a>
+                ) : (
+                  <span>Instagram</span>
+                )}
               </li>
               <li className="flex items-center gap-3">
                 <Image
@@ -79,12 +92,12 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-2xl md:text-3xl">Empresa</h3>
             <div className="mt-4 space-y-2 text-sm md:text-base">
-              <p>RENATA BRAZ CONTABILIDADE DIGITAL LTDA</p>
+              <p>CONFLUI CONTABILIDADE DIGITAL LTDA</p>
               <p>CRCCE - 003531/O-0</p>
               <p>CNPJ: 54.151.365.0001/46</p>
               <p>
-                Endereço: R. Sen. Pompeu, 834 - 60025-000 sala 415 - Centro,
-                Fortaleza - CE, 60000-060
+                Endereço: R. Nogueira Acioli, 1505, bairro: Centro,
+                Fortaleza/CE, CEP: 60.110-140
               </p>
             </div>
           </div>
