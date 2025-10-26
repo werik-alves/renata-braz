@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsappFloat from "../components/WhatsappFloat";
 import { Poppins } from "next/font/google";
+import { SITE_NAME, SITE_DESCRIPTION, SITE_URL, defaultOpenGraph, defaultTwitter, canonicalForPath } from "../lib/seo";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -13,8 +14,12 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Conflui Contabilidade",
-  description: "Site oficial Conflui Contabilidade",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
   icons: {
     icon: [
       { url: "/assets/icon.png", type: "image/png", sizes: "any" },
@@ -27,6 +32,25 @@ export const metadata: Metadata = {
     width: "device-width",
     initialScale: 1,
     viewportFit: "cover",
+  },
+  alternates: {
+    canonical: canonicalForPath("/"),
+  },
+  openGraph: {
+    ...defaultOpenGraph,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    ...defaultTwitter,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
 };
 

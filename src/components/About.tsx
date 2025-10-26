@@ -17,7 +17,7 @@ export default function About() {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(0) }}
       >
-        <img src="/assets/renata.png" alt="" />
+        <img src="/assets/renata.png" alt="Renata Braz, contadora" loading="lazy" />
       </motion.div>
       <motion.div
         className="flex flex-col justify-center bg-[#B3A79B] w-full p-4 h-full rounded-md"

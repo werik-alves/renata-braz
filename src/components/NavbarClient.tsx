@@ -54,7 +54,7 @@ export default function NavbarClient({
           <Link href="/" className="flex items-center gap-3">
             <Image
               src={assets.logo}
-              alt="Logo"
+              alt="Logo Conflui Contabilidade"
               width={40}
               height={40}
               priority

@@ -24,7 +24,7 @@ export default function ContactStrip() {
             <div className="relative w-28 h-28 flex items-center justify-center">
               <Image
                 src={assets.users}
-                alt="Usuários"
+                alt="Clientes satisfeitos"
                 width={40}
                 height={40}
                 className="object-contain"
@@ -50,7 +50,7 @@ export default function ContactStrip() {
             <div className="relative w-28 h-28 flex items-center justify-center">
               <Image
                 src={assets.world}
-                alt="Usuários"
+                alt="Atendimento nacional"
                 width={40}
                 height={40}
                 className="object-contain"
@@ -76,7 +76,7 @@ export default function ContactStrip() {
             <div className="relative w-28 h-28 flex items-center justify-center">
               <Image
                 src={assets.time}
-                alt="Usuários"
+                alt="Horário de atendimento"
                 width={40}
                 height={40}
                 className="object-contain"

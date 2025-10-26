@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto max-w-6xl w-full px-4 sm:px-6 md:px-8 flex flex-col items-center text-center gap-4">
         <Image
           src="/assets/hero.png"
-          alt="Logo"
+          alt="Logo Conflui Contabilidade"
           width={440}
           height={330}
           className="h-auto object-contain w-[220px] sm:w-[300px] md:w-[360px] lg:w-[440px]"
