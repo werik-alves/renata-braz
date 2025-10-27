@@ -30,7 +30,7 @@ export default function NavbarClient({
           href={whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium bg-[#B3A79B] text-[#F1EDE4] px-4 py-2 rounded-md hover:opacity-90"
+          className="font-medium bg-[#383330] text-[#F1EDE4] px-4 py-2 rounded-md hover:opacity-90"
           onClick={onSelect}
           aria-label="Solicite um orçamento pelo WhatsApp"
         >
@@ -38,7 +38,7 @@ export default function NavbarClient({
         </a>
       ) : (
         <button
-          className="font-medium bg-[#B3A79B] text-[#F1EDE4] px-4 py-2 rounded-md opacity-60 cursor-not-allowed"
+          className="font-medium bg-[#383330] text-[#F1EDE4] px-4 py-2 rounded-md opacity-60 cursor-not-allowed"
           disabled
         >
           Solicite um orçamento
@@ -48,7 +48,7 @@ export default function NavbarClient({
   );
 
   return (
-    <nav className="bg-[#383330] text-[#F1EDE4] w-full sticky top-0 md:fixed md:left-0 md:right-0 z-50 pt-[env(safe-area-inset-top)]">
+    <nav className="bg-[#F8F9FA] text-[#383330] w-full sticky top-0 md:fixed md:left-0 md:right-0 z-50 pt-[env(safe-area-inset-top)]">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-3">

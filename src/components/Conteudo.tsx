@@ -59,7 +59,7 @@ export default function Conteudo() {
       <div className="order-1 lg:order-2 mx-auto max-w-6xl px-4">
         <img
           src="/assets/renata_.png"
-          alt=""
+          alt="Reta Braz, consultora de Imposto de Renda"
           className="sm:w-full md:w-96 lg:max-w-2xs"
         />
       </div>

@@ -34,7 +34,7 @@ export function buildWhatsappLinkImposto(
   opts: WhatsappOptions = {}
 ): string | null {
   const envRaw =
-    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER_IMPOSTO ||
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ||
     process.env.WHATSAPP_NUMBER ||
     "";
   const raw = opts.phone ?? envRaw;

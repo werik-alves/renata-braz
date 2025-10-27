@@ -44,13 +44,16 @@ export default function Depoimento() {
 
   const pages = Math.ceil(testimonials.length / itemsPerPage);
 
-  const scrollToPage = useCallback((target: number) => {
-    const el = trackRef.current;
-    if (!el) return;
-    const next = Math.max(0, Math.min(target, pages - 1));
-    el.scrollTo({ left: next * el.clientWidth, behavior: "smooth" });
-    setPage(next);
-  }, [pages]);
+  const scrollToPage = useCallback(
+    (target: number) => {
+      const el = trackRef.current;
+      if (!el) return;
+      const next = Math.max(0, Math.min(target, pages - 1));
+      el.scrollTo({ left: next * el.clientWidth, behavior: "smooth" });
+      setPage(next);
+    },
+    [pages]
+  );
 
   useEffect(() => {
     const el = trackRef.current;
