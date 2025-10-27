@@ -8,11 +8,19 @@ function absoluteUrl(path?: string): string | undefined {
   return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+// Tipos para JSON-LD de horários
+interface OpeningHoursSpec {
+  "@type": "OpeningHoursSpecification";
+  dayOfWeek: string[];
+  opens: string;
+  closes: string;
+}
+
 function buildOpeningHours() {
   const moFr = process.env.NEXT_PUBLIC_BUSINESS_OPENING_HOURS_MO_FR; // Ex.: "09:00-18:00"
   const sa = process.env.NEXT_PUBLIC_BUSINESS_OPENING_HOURS_SA;
   const su = process.env.NEXT_PUBLIC_BUSINESS_OPENING_HOURS_SU;
-  const specs: any[] = [];
+  const specs: OpeningHoursSpec[] = [];
   const toSpec = (range: string | undefined, days: string[]) => {
     if (!range) return;
     const [opens, closes] = range.split("-");
@@ -54,7 +62,7 @@ export function buildLocalBusinessJsonLd() {
   const lat = process.env.NEXT_PUBLIC_BUSINESS_LAT;
   const lng = process.env.NEXT_PUBLIC_BUSINESS_LNG;
 
-  const jsonLd: any = {
+  const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "AccountingService", "ProfessionalService"],
     name: BUSINESS_NAME,
@@ -66,8 +74,8 @@ export function buildLocalBusinessJsonLd() {
   if (EMAIL) jsonLd.email = EMAIL;
   if (TELEPHONE) jsonLd.telephone = TELEPHONE;
 
-  const cleanedAddr: any = {};
-  for (const [k, v] of Object.entries(address)) if (v) cleanedAddr[k] = v;
+  const cleanedAddr: Record<string, string> = {};
+  for (const [k, v] of Object.entries(address)) if (v) cleanedAddr[k] = v as string;
   if (Object.keys(cleanedAddr).length) {
     jsonLd.address = { "@type": "PostalAddress", ...cleanedAddr };
   }

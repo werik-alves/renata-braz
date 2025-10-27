@@ -1,5 +1,5 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsappFloat from "../components/WhatsappFloat";
@@ -12,6 +12,12 @@ const poppins = Poppins({
   variable: "--font-poppins",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -28,11 +34,7 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/assets/icon.png", type: "image/png", sizes: "180x180" }],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    viewportFit: "cover",
-  },
+  // viewport removido daqui conforme recomendação da API
   alternates: {
     canonical: canonicalForPath("/"),
   },

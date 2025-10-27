@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 type Testimonial = {
   quote: string;
@@ -44,13 +44,13 @@ export default function Depoimento() {
 
   const pages = Math.ceil(testimonials.length / itemsPerPage);
 
-  const scrollToPage = (target: number) => {
+  const scrollToPage = useCallback((target: number) => {
     const el = trackRef.current;
     if (!el) return;
     const next = Math.max(0, Math.min(target, pages - 1));
     el.scrollTo({ left: next * el.clientWidth, behavior: "smooth" });
     setPage(next);
-  };
+  }, [pages]);
 
   useEffect(() => {
     const el = trackRef.current;
@@ -69,7 +69,7 @@ export default function Depoimento() {
       scrollToPage((page + 1) % pages);
     }, 5000);
     return () => clearInterval(id);
-  }, [page, pages, paused]);
+  }, [page, pages, paused, scrollToPage]);
 
   return (
     <section id="depoimentos" className="py-20">

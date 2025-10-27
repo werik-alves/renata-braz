@@ -5,7 +5,7 @@ import { linkAcessoriaMensal } from "@/lib/links";
 import { linkRegularizacao } from "@/lib/links";
 import { linkAberturaCnpj } from "@/lib/links";
 import { motion } from "framer-motion";
-import { DURATION_BASE, EASE_DEFAULT, SECTION_STAGGER, seqDelay } from "@/lib/animation";
+import { DURATION_BASE, EASE_DEFAULT, seqDelay } from "@/lib/animation";
 
 export default function Especilidades() {
   return (
