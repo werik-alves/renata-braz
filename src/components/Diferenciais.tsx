@@ -3,19 +3,33 @@
 import { acessoria, comunicacao, emissao, relacionamento } from "@/lib/assets";
 import { buildWhatsappLinkDiferenciais } from "@/lib/links";
 import { motion } from "framer-motion";
-import { DURATION_BASE, EASE_DEFAULT, SECTION_STAGGER, SECTION_DELAY_CHILDREN } from "@/lib/animation";
+import {
+  DURATION_BASE,
+  EASE_DEFAULT,
+  SECTION_STAGGER,
+  SECTION_DELAY_CHILDREN,
+} from "@/lib/animation";
 export default function Services() {
   const containerVariants = {
     hidden: { opacity: 0, y: 12 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: DURATION_BASE, ease: EASE_DEFAULT, staggerChildren: SECTION_STAGGER, delayChildren: SECTION_DELAY_CHILDREN },
+      transition: {
+        duration: DURATION_BASE,
+        ease: EASE_DEFAULT,
+        staggerChildren: SECTION_STAGGER,
+        delayChildren: SECTION_DELAY_CHILDREN,
+      },
     },
   };
   const itemVariants = {
     hidden: { opacity: 0, y: 10 },
-    show: { opacity: 1, y: 0, transition: { duration: DURATION_BASE, ease: EASE_DEFAULT } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: DURATION_BASE, ease: EASE_DEFAULT },
+    },
   };
   return (
     <section id="services" className="py-20">
@@ -38,7 +52,11 @@ export default function Services() {
         >
           <motion.div className="flex flex-col gap-3" variants={itemVariants}>
             <div className="flex items-start gap-3">
-              <img src={acessoria} alt="" className="h-8 w-8 object-contain" />
+              <img
+                src={acessoria}
+                alt="Assessoria na Contratação de Sistema"
+                className="h-8 w-8 object-contain"
+              />
               <h3 className="text-lg md:text-xl font-semibold text-[#383330]">
                 Assessoria na Contratação de Sistema
               </h3>
@@ -53,7 +71,11 @@ export default function Services() {
           </motion.div>
           <motion.div className="flex flex-col gap-3" variants={itemVariants}>
             <div className="flex items-start gap-3">
-              <img src={emissao} alt="" className="h-8 w-8 object-contain" />
+              <img
+                src={emissao}
+                alt="Emissão de Relatórios Extra Contábeis"
+                className="h-8 w-8 object-contain"
+              />
               <h3 className="text-lg md:text-xl font-semibold text-[#383330]">
                 Emissão de Relatórios Extra Contábeis
               </h3>
@@ -70,7 +92,7 @@ export default function Services() {
             <div className="flex items-start gap-3">
               <img
                 src={comunicacao}
-                alt=""
+                alt="Comunicação de Fácil Entendimento"
                 className="h-8 w-8 object-contain"
               />
               <h3 className="text-lg md:text-xl font-semibold text-[#383330]">
@@ -89,7 +111,7 @@ export default function Services() {
             <div className="flex items-start gap-3">
               <img
                 src={relacionamento}
-                alt=""
+                alt="Relacionamento Próximo com o Cliente"
                 className="h-8 w-8 object-contain"
               />
               <h3 className="text-lg md:text-xl font-semibold text-[#383330]">
@@ -115,7 +137,11 @@ export default function Services() {
               initial={{ opacity: 0, y: 10, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: SECTION_STAGGER }}
+              transition={{
+                duration: DURATION_BASE,
+                ease: EASE_DEFAULT,
+                delay: SECTION_STAGGER,
+              }}
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();

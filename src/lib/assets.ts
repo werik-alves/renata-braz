@@ -1,5 +1,6 @@
 export const assets = {
   logo: "/assets/logonavbar.png",
+  logo_conflui: "/assets/logo_conflui_contabilidade.png",
   hero: "/assets/hero.jpg",
   users: "/assets/users.svg",
   world: "/assets/world.png",

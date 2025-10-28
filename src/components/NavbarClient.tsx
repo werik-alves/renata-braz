@@ -53,10 +53,10 @@ export default function NavbarClient({
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src={assets.logo}
+              src={assets.logo_conflui}
               alt="Logo Conflui Contabilidade"
-              width={40}
-              height={40}
+              width={80}
+              height={30}
               priority
             />
             <span className="sr-only">Início</span>
@@ -69,7 +69,7 @@ export default function NavbarClient({
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-[#F1EDE4] hover:bg-[#F1EDE4]/10"
+            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-[#383330] hover:bg-[#F1EDE4]/10"
             aria-label="Abrir menu"
             onClick={() => setOpen(true)}
           >

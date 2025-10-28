@@ -103,8 +103,8 @@ export default function Depoimento() {
           >
             {testimonials.map((t, i) => (
               <div key={i} className="snap-center flex-none w-full md:w-1/2">
-                <div className="bg-[#383330] text-[#F1EDE4] rounded-2xl p-5 md:p-8 mr-4 shadow-lg ring-1 ring-black/10 flex flex-col justify-center h-[400px] md:h-[340px]">
-                  <p className="text-sm md:text-base leading-relaxed">
+                <div className="bg-[#383330] text-[#F1EDE4] rounded-2xl p-5 md:p-8 shadow-lg ring-1 ring-black/10 flex flex-col items-center justify-center h-[400px] md:h-[340px]">
+                  <p className="text-sm md:text-base leading-relaxed text-center">
                     {t.quote}
                   </p>
                   <div className="mt-6 text-center">
