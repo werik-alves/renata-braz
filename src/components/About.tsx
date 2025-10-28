@@ -11,20 +11,32 @@ export default function About() {
       className="py-20 mx-auto max-w-6xl px-4 grid grid-cols-1 gap-2 md:grid-cols-2"
     >
       <motion.div
-        className="mx-auto max-w-6xl px-4"
+        className="mx-auto max-w-6xl px-4 pb-6"
         initial={{ opacity: 0, x: 24 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(0) }}
+        transition={{
+          duration: DURATION_BASE,
+          ease: EASE_DEFAULT,
+          delay: seqDelay(0),
+        }}
       >
-        <img src="/assets/renata.png" alt="Renata Braz, contadora" loading="lazy" />
+        <img
+          src="/assets/renata_braz.png"
+          alt="Renata Braz, contadora"
+          loading="lazy"
+        />
       </motion.div>
       <motion.div
-        className="flex flex-col justify-center bg-[#B3A79B] w-full p-4 h-full rounded-md"
+        className="flex flex-col justify-center w-full p-4 h-full rounded-md"
         initial={{ opacity: 0, x: 24 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(1) }}
+        transition={{
+          duration: DURATION_BASE,
+          ease: EASE_DEFAULT,
+          delay: seqDelay(1),
+        }}
       >
         <h2 className="text-2xl font-semibold text-[#50341F] self-center">
           Quem esta por trás
@@ -36,7 +48,7 @@ export default function About() {
           proporcionar uma contabilidade comunicativa e objetiva, focada em
           simplificar processos e fornecer soluções práticas para meus clientes.
         </p>
-        <button className="mt-4 text-[#50341F] px-4 py-2 rounded-md self-center text-1xl font-bold cursor-pointer">
+        <button className="mt-4 text-[#50341F] bg-[#B3A79B] px-4 py-2 rounded-md self-center text-1xl font-medium cursor-pointer">
           {linkSaibaMais() && (
             <a
               href={linkSaibaMais() ?? undefined}

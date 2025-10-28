@@ -42,7 +42,7 @@ export function buildWhatsappLinkImposto(
   if (!digits) return null;
   const message =
     opts.text ??
-    "Olá! Gostaria de fazer uma consulta sobre o Imposto de Renda.";
+    "Olá! Gostaria de obter ajuda para declarar meu Imposto de Renda.";
   const encoded = encodeURIComponent(message);
   return `https://api.whatsapp.com/send?phone=${digits}&text=${encoded}`;
 }
@@ -89,7 +89,7 @@ export function linkAcessoriaMensal(opts: WhatsappOptions = {}): string | null {
   if (!digits) return null;
   const message =
     opts.text ??
-    "Olá! Gostaria de fazer uma consulta sobre a Acessória Mensal.";
+    "Olá! Gostaria de fazer uma consulta sobre a Assessoria Mensal.";
   const encoded = encodeURIComponent(message);
   return `https://api.whatsapp.com/send?phone=${digits}&text=${encoded}`;
 }
@@ -103,7 +103,7 @@ export function linkAcessoriaMei(opts: WhatsappOptions = {}): string | null {
   const digits = sanitizeDigits(raw);
   if (!digits) return null;
   const message =
-    opts.text ?? "Olá! Gostaria de fazer uma consulta sobre a Acessória MEI.";
+    opts.text ?? "Olá! Gostaria de fazer uma consulta sobre a Assessoria MEI.";
   const encoded = encodeURIComponent(message);
   return `https://api.whatsapp.com/send?phone=${digits}&text=${encoded}`;
 }
@@ -118,7 +118,7 @@ export function linkRegularizacao(opts: WhatsappOptions = {}): string | null {
   if (!digits) return null;
   const message =
     opts.text ??
-    "Olá! Gostaria de saber como fazer a regularização da Empresa.";
+    "Olá! Gostaria de saber como fazer a regularização da empresa.";
   const encoded = encodeURIComponent(message);
   return `https://api.whatsapp.com/send?phone=${digits}&text=${encoded}`;
 }

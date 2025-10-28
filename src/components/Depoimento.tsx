@@ -10,23 +10,22 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     quote:
-      '"Nada melhor que uma contadora com um profissionalismo refinado e um olhar atencioso para o seu negócio. A Renata me ajuda a organizar e deixar as coisas da minha empresa mais fluídas. Tira dúvidas e está sempre disposta a ajudar. Obrigada, Renata, por estar comigo nessa. Profissional excelente, eu recomendo com orgulho."',
+      "Não há nada melhor do que contar com uma contadora de profissionalismo refinado e olhar atento ao seu negócio. A Renata me ajuda a organizar e tornar os processos da minha empresa mais fluidos. Tira dúvidas e está sempre disposta a ajudar. Obrigada, Renata, por estar comigo nessa. Profissional excelente — recomendo com orgulho.",
     author: "Cris",
-    role: "Dona da Barbershop Art",
+    role: "Proprietária da Barbershop Art",
   },
   {
     quote:
-      '"Ter a Renata como parceira tem sido essencial para manter minha empresa organizada e em conformidade com todas as obrigações burocráticas. Desde que comecei minha jornada como MEI, ela me apoia em todas as etapas com profissionalismo e atenção aos detalhes, sempre orientando sobre prazos, tributações e mudanças legais que impactam o meu negócio. Recomendo seu trabalho a qualquer empreendedor que busca tranquilidade e eficiência em sua contabilidade!"',
+      "Ter a Renata como parceira tem sido essencial para manter minha empresa organizada e em conformidade com todas as obrigações. Desde o início como MEI, ela me apoia em todas as etapas com profissionalismo e atenção aos detalhes, orientando sobre prazos, tributações e mudanças legais que impactam o negócio. Recomendo seu trabalho a qualquer empreendedor que busca tranquilidade e eficiência na contabilidade.",
     author: "Ravena Souza",
-    role: "Dona da Ravena Design",
+    role: "Proprietária da Ravena Design",
   },
   {
     quote:
-      '"Ter a Renata como parceira tem sido essencial para manter minha empresa organizada e em conformidade com todas as obrigações burocráticas. Desde que comecei minha jornada como MEI, ela me apoia em todas as etapas com profissionalismo e atenção aos detalhes, sempre orientando sobre prazos, tributações e mudanças legais que impactam o meu negócio. Recomendo seu trabalho a qualquer empreendedor que busca tranquilidade e eficiência em sua contabilidade!"',
-    author: "Ravena Souza",
-    role: "Dona da Ravena Design",
+      "A parceria com a Renata trouxe segurança e previsibilidade para o meu negócio. Ela explica tudo com clareza e cuida dos prazos, o que me permite focar no que realmente importa.",
+    author: "Cliente",
+    role: "Empreendedora",
   },
-  // Adicione novos depoimentos aqui, basta incluir objetos no array
 ];
 
 export default function Depoimento() {
@@ -81,7 +80,7 @@ export default function Depoimento() {
           Depoimentos
         </h2>
         <p className="mt-2 text-center text-[#383330] text-base md:text-lg">
-          Saiba o que nossos clientes estão dizendo sobre nossa empresa
+          Veja o que nossos clientes dizem sobre nossa empresa
         </p>
         {/* setas */}
         <div className="relative mt-8">
@@ -99,11 +98,11 @@ export default function Depoimento() {
             onMouseLeave={() => setPaused(false)}
             onTouchStart={() => setPaused(true)}
             onTouchEnd={() => setPaused(false)}
-            className="flex gap-0 md:gap-6 overflow-x-auto md:overflow-hidden scroll-smooth snap-x snap-mandatory no-scrollbar px-4 md:px-10"
+            className="flex gap-3 md:gap-6 overflow-x-auto md:overflow-hidden scroll-smooth snap-x snap-mandatory no-scrollbar px-4 md:px-10"
           >
             {testimonials.map((t, i) => (
               <div key={i} className="snap-center flex-none w-full md:w-1/2">
-                <div className="bg-[#383330] text-[#F1EDE4] rounded-2xl p-5 md:p-8 shadow-lg ring-1 ring-black/10 flex flex-col items-center justify-center h-[400px] md:h-[340px]">
+                <div className="bg-[#383330] text-[#F1EDE4] rounded-2xl p-5 md:p-8 sm:p-5 shadow-lg ring-1 ring-black/10 flex flex-col items-center justify-center h-[400px] md:h-[340px]">
                   <p className="text-sm md:text-base leading-relaxed text-center">
                     {t.quote}
                   </p>

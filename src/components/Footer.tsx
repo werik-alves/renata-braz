@@ -79,7 +79,7 @@ export default function Footer() {
                   className="w-5 h-5"
                 />
                 <a
-                  href="mailto:contato@escritoriorenatabraz.com.br"
+                  href="mailto:contato@confluicontabilidade.com.br"
                   className="hover:underline"
                 >
                   contato@confluicontabilidade.com.br
@@ -94,10 +94,9 @@ export default function Footer() {
             <div className="mt-4 space-y-2 text-sm md:text-base">
               <p>CONFLUI CONTABILIDADE DIGITAL LTDA</p>
               <p>CRCCE - 003531/O-0</p>
-              <p>CNPJ: 54.151.365.0001/46</p>
+              <p>CNPJ: 54.151.365/0001-46</p>
               <p>
-                Endereço: R. Nogueira Acioli, 1505, bairro: Centro,
-                Fortaleza/CE, CEP: 60.110-140
+                Endereço: Rua Nogueira Acioli, 1505 — Centro — Fortaleza/CE — CEP 60110-140
               </p>
             </div>
           </div>
