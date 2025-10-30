@@ -2,7 +2,7 @@ export const assets = {
   logo: "/assets/logonavbar.png",
   logo_conflui: "/assets/logo_conflui_contabilidade.png",
   hero: "/assets/hero.jpg",
-  users: "/assets/users.svg",
+  users: "/assets/users.png",
   world: "/assets/world.png",
   time: "/assets/time.png",
   iconeValores: "/assets/iconevalores.png",
