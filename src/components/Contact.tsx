@@ -91,9 +91,10 @@ export default function Contact() {
       setPhone("");
       setMessage("");
       setTouched({ name: false, email: false, phone: false, message: false });
-    } catch (err: any) {
+    } catch (err: unknown) {
       setSubmitStatus("error");
-      setSubmitError(err?.message || "Erro inesperado.");
+      const message = err instanceof Error ? err.message : String(err);
+      setSubmitError(message || "Erro inesperado.");
     } finally {
       setIsSubmitting(false);
     }
