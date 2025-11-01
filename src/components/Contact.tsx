@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
+import { buildWhatsappLink } from "../lib/links";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -70,55 +70,50 @@ export default function Contact() {
     if (!formValid) return;
     setIsSubmitting(true);
 
-    const base = (process.env.NEXT_PUBLIC_API_BASE_URL || "").replace(
-      /\/$/,
-      ""
-    );
-    const endpoint = base ? `${base}/contact` : "/api/contact";
+    try {
+      const lines = [
+        "Olá! Gostaria de solicitar um orçamento.",
+        `Nome: ${name}`,
+        `E-mail: ${email}`,
+        `Celular: ${phone}`,
+        `Mensagem: ${message}`,
+      ];
+      const text = lines.join("\n");
+      const whatsappHref = buildWhatsappLink({ text });
+      if (!whatsappHref) throw new Error("WhatsApp não configurado.");
 
-    fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name,
-        email,
-        phone: phoneDigits,
-        message,
-      }),
-    })
-      .then(async (res) => {
-        const data = await res.json().catch(() => ({}));
-        if (!res.ok || data?.ok === false) {
-          throw new Error(data?.error || "Falha ao enviar mensagem.");
-        }
-        setSubmitStatus("success");
-        setName("");
-        setEmail("");
-        setPhone("");
-        setMessage("");
-        setTouched({ name: false, email: false, phone: false, message: false });
-      })
-      .catch((err) => {
-        setSubmitStatus("error");
-        setSubmitError(err.message || "Erro inesperado.");
-      })
-      .finally(() => {
-        setIsSubmitting(false);
-      });
+      // Abre o WhatsApp com a mensagem preenchida
+      window.open(whatsappHref, "_blank");
+
+      setSubmitStatus("success");
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+      setTouched({ name: false, email: false, phone: false, message: false });
+    } catch (err: any) {
+      setSubmitStatus("error");
+      setSubmitError(err?.message || "Erro inesperado.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   return (
     <section id="contact" className="py-16">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="rounded-2xl bg-[#383330] p-6 md:p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+      <div className="mx-auto w-full ">
+        <div className="rounded-2xl w-full p-6 md:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-1 items-center gap-8">
             {/* Card de formulário */}
-            <div className="flex justify-center md:justify-start">
-              <div className="w-full max-w-md bg-[#F1EDE4] rounded-lg shadow-lg ring-1 ring-black/10 p-6 sm:p-8 md:p-10">
-                <h3 className="text-[#50341F] font-semibold text-lg mb-5">
-                  Solicite seu orçamento
+            <div className="flex justify-center items-center md:justify-center">
+              <div className="w-full max-w-[900px] bg-[#EBE6DD] rounded-lg shadow-lg ring-1 ring-black/10 p-6 sm:p-8 md:p-10 items-center">
+                <h3 className="text-[#50341F] font-semibold text-lg mb-5 text-center">
+                  Solicite o seu orçamento
                 </h3>
-                <form className="space-y-4" onSubmit={handleSubmit}>
-                  <label className="block">
+                <form
+                  className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-[800px] mx-auto items-center"
+                  onSubmit={handleSubmit}
+                >
+                  <label className="block md:col-start-1 md:row-start-1">
                     <div
                       className={`flex items-center gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ${
                         touched.name && !nameValid
@@ -157,7 +152,7 @@ export default function Contact() {
                       </p>
                     )}
                   </label>
-                  <label className="block">
+                  <label className="block md:col-start-1 md:row-start-2">
                     <div
                       className={`flex items-center gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ${
                         touched.email && !emailValid
@@ -199,7 +194,7 @@ export default function Contact() {
                     )}
                   </label>
                   {/* Mensagem ajustada para textarea e ícone adequado */}
-                  <label className="block">
+                  <label className="block md:col-start-2 md:row-start-1 md:row-span-3">
                     <div
                       className={`flex items-start gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ${
                         touched.message && !messageValid
@@ -221,13 +216,13 @@ export default function Contact() {
                         <path d="M7 8h10M7 12h8" />
                       </svg>
                       <textarea
-                        placeholder="Sua mensagem"
+                        placeholder="Digite uma mensagem"
                         value={message}
                         onChange={handleMessageChange}
                         onBlur={() =>
                           setTouched((s) => ({ ...s, message: true }))
                         }
-                        rows={4}
+                        rows={6}
                         autoComplete="off"
                         aria-invalid={touched.message && !messageValid}
                         className="min-w-0 flex-1 bg-transparent outline-none text-[#383330] placeholder-[#383330]/70 text-base resize-y"
@@ -239,7 +234,7 @@ export default function Contact() {
                       </p>
                     )}
                   </label>
-                  <label className="block">
+                  <label className="block md:col-start-1 md:row-start-3">
                     <div
                       className={`flex items-center gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ${
                         touched.phone && !phoneValid
@@ -283,34 +278,22 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={!formValid || isSubmitting}
-                    className="w-full bg-[#50341F] hover:bg-[#4A362D] text-white rounded-md py-3 font-medium text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="mx-auto w-[200px] md:col-span-2  bg-[#383330] hover:bg-[#4A362D] text-white rounded-md py-3 px-6 font-medium text-base disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                   >
                     {isSubmitting ? "Enviando..." : "Enviar"}
                   </button>
                   {submitStatus === "success" && (
-                    <p className="mt-2 text-sm text-green-700">
+                    <p className="mt-2 text-sm text-green-700 md:col-span-2 text-center">
                       Mensagem enviada com sucesso!
                     </p>
                   )}
                   {submitStatus === "error" && (
-                    <p className="mt-2 text-sm text-red-700">
+                    <p className="mt-2 text-sm text-red-700 md:col-span-2 text-center">
                       {submitError || "Não foi possível enviar."}
                     </p>
                   )}
                 </form>
               </div>
-            </div>
-
-            {/* Imagem */}
-            <div className="flex justify-center">
-              <Image
-                src="/assets/img_email.png"
-                alt="Contato"
-                width={520}
-                height={390}
-                priority
-                className="select-none"
-              />
             </div>
           </div>
         </div>

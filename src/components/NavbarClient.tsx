@@ -30,7 +30,7 @@ export default function NavbarClient({
           href={whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium bg-[#383330] text-[#F1EDE4] px-4 py-2 rounded-md hover:opacity-90"
+          className="font-medium bg-[#F1EDE4] text-[#383330] px-4 py-2 rounded-md hover:opacity-90"
           onClick={onSelect}
           aria-label="Solicite um orçamento pelo WhatsApp"
         >
@@ -38,7 +38,7 @@ export default function NavbarClient({
         </a>
       ) : (
         <button
-          className="font-medium bg-[#383330] text-[#F1EDE4] px-4 py-2 rounded-md opacity-60 cursor-not-allowed"
+          className="font-medium bg-[#F1EDE4] text-[#383330] px-4 py-2 rounded-md opacity-60 cursor-not-allowed"
           disabled
         >
           Solicite um orçamento
@@ -48,7 +48,7 @@ export default function NavbarClient({
   );
 
   return (
-    <nav className="bg-[#F1EDE4] text-[#383330] w-full sticky top-0 md:fixed md:left-0 md:right-0 z-50 pt-[env(safe-area-inset-top)]">
+    <nav className="bg-[#383330] text-[#F1EDE4] w-full sticky top-0 md:fixed md:left-0 md:right-0 z-50 pt-[env(safe-area-inset-top)]">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-3">
@@ -69,7 +69,7 @@ export default function NavbarClient({
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-[#383330] hover:bg-[#F1EDE4]/10"
+            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-[#F1EDE4] hover:bg-[#F1EDE4]/10"
             aria-label="Abrir menu"
             onClick={() => setOpen(true)}
           >

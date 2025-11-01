@@ -11,13 +11,17 @@ export default function Especilidades() {
   return (
     <section id="services" className="py-20">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="rounded-2xl bg-[#2F2926] p-6 md:p-8">
+        <div className="rounded-2xl bg-[#383330] p-6 md:p-8">
           <motion.h2
             className="text-2xl md:text-3xl font-semibold text-center text-[#F1EDE4]"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(0) }}
+            transition={{
+              duration: DURATION_BASE,
+              ease: EASE_DEFAULT,
+              delay: seqDelay(0),
+            }}
           >
             Especialidades
           </motion.h2>
@@ -27,11 +31,15 @@ export default function Especilidades() {
             initial={{ opacity: 0, y: -16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(1) }}
+            transition={{
+              duration: DURATION_BASE,
+              ease: EASE_DEFAULT,
+              delay: seqDelay(1),
+            }}
           >
             <p className="text-sm md:text-base text-[#383330] px-8 md:px-14">
-              "Soluções contábeis personalizadas para atender às necessidades
-              específicas do seu negócio"
+              Soluções contábeis personalizadas para atender às necessidades
+              específicas do seu negócio.
             </p>
           </motion.div>
 
@@ -41,7 +49,11 @@ export default function Especilidades() {
               initial={{ opacity: 0, y: -14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(2) }}
+              transition={{
+                duration: DURATION_BASE,
+                ease: EASE_DEFAULT,
+                delay: seqDelay(2),
+              }}
             >
               <div className="bg-[#F1EDE4] rounded-2xl p-6 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">
@@ -68,7 +80,11 @@ export default function Especilidades() {
               initial={{ opacity: 0, y: -14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(3) }}
+              transition={{
+                duration: DURATION_BASE,
+                ease: EASE_DEFAULT,
+                delay: seqDelay(3),
+              }}
             >
               <div className="bg-[#F1EDE4] rounded-2xl p-9.5 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">
@@ -93,7 +109,11 @@ export default function Especilidades() {
               initial={{ opacity: 0, y: -14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(4) }}
+              transition={{
+                duration: DURATION_BASE,
+                ease: EASE_DEFAULT,
+                delay: seqDelay(4),
+              }}
             >
               <div className="bg-[#F1EDE4] rounded-2xl p-6 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">
@@ -120,7 +140,11 @@ export default function Especilidades() {
               initial={{ opacity: 0, y: -14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: DURATION_BASE, ease: EASE_DEFAULT, delay: seqDelay(5) }}
+              transition={{
+                duration: DURATION_BASE,
+                ease: EASE_DEFAULT,
+                delay: seqDelay(5),
+              }}
             >
               <div className="bg-[#F1EDE4] rounded-2xl p-9.5 inset-shadow-sm inset-shadow-black hover:bg-[#ffffff]">
                 <h3 className="text-[#383330] text-base md:text-lg font-semibold text-center">

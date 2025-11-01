@@ -57,7 +57,7 @@ export default function About() {
           src="/assets/renata_braz.png"
           alt="Renata Braz, contadora"
           loading="lazy"
-          className="shadow-lg rounded-br-[49px] rounded-tl-[49px]"
+          className="shadow-lg rounded-br-[49px] rounded-tl-[49px] h-[400px]"
         />
       </motion.div>
     </section>

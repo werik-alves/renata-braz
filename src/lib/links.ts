@@ -154,6 +154,6 @@ export function linkSaibaMais(opts: WhatsappOptions = {}): string | null {
 }
 
 export function buildInstagramLink(opts: InstagramOptions = {}): string | null {
-  const username = opts.username ?? "contadora.renatabraz";
+  const username = opts.username ?? "confluicontabilidade";
   return `https://www.instagram.com/${username}/?igshid=OGQ5ZDc2ODk2ZA%3D%3D`;
 }

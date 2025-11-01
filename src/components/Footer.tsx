@@ -96,14 +96,15 @@ export default function Footer() {
               <p>CRCCE - 003531/O-0</p>
               <p>CNPJ: 54.151.365/0001-46</p>
               <p>
-                Endereço: Rua Nogueira Acioli, 1505 — Centro — Fortaleza/CE — CEP 60110-140
+                Endereço: Rua Nogueira Acioli, 1505 — Centro — Fortaleza/CE —
+                CEP 60110-140
               </p>
             </div>
           </div>
         </div>
 
         <div className="mt-8 border-t border-white/10 pt-4 text-center text-xs">
-          © {year} Renata Braz. Todos os direitos reservados.
+          © {year} Conflui contabilidade. Todos os direitos reservados.
         </div>
       </div>
     </footer>
