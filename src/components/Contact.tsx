@@ -21,6 +21,9 @@ export default function Contact() {
   const phoneValid = phoneDigits.length === 10 || phoneDigits.length === 11;
   const messageValid = message.trim().length >= 10;
   const formValid = nameValid && emailValid && phoneValid && messageValid;
+  const canShowButton = Boolean(
+    name.trim() && email.trim() && phoneDigits.length && message.trim()
+  );
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
@@ -65,9 +68,8 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setTouched({ name: true, email: true, phone: true, message: true });
     setSubmitError(null);
-    if (!formValid) return;
+    if (!canShowButton) return;
     setIsSubmitting(true);
 
     try {
@@ -115,13 +117,7 @@ export default function Contact() {
                   onSubmit={handleSubmit}
                 >
                   <label className="block md:col-start-1 md:row-start-1">
-                    <div
-                      className={`flex items-center gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ${
-                        touched.name && !nameValid
-                          ? "ring-1 ring-red-500"
-                          : "ring-1 ring-black/10"
-                      }`}
-                    >
+                    <div className="flex items-center gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ring-1 ring-black/10">
                       <svg
                         aria-hidden
                         className="h-5 w-5 text-[#383330]"
@@ -140,27 +136,15 @@ export default function Contact() {
                         placeholder="Seu Nome"
                         value={name}
                         onChange={handleNameChange}
-                        onBlur={() => setTouched((s) => ({ ...s, name: true }))}
                         inputMode="text"
                         autoComplete="name"
-                        aria-invalid={touched.name && !nameValid}
+                        aria-invalid={false}
                         className="min-w-0 flex-1 bg-transparent outline-none text-[#383330] placeholder-[#383330]/70 text-base"
                       />
                     </div>
-                    {touched.name && !nameValid && (
-                      <p className="mt-1 text-xs text-red-600">
-                        Informe um nome válido (apenas letras e espaços).
-                      </p>
-                    )}
                   </label>
                   <label className="block md:col-start-1 md:row-start-2">
-                    <div
-                      className={`flex items-center gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ${
-                        touched.email && !emailValid
-                          ? "ring-1 ring-red-500"
-                          : "ring-1 ring-black/10"
-                      }`}
-                    >
+                    <div className="flex items-center gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ring-1 ring-black/10">
                       <svg
                         aria-hidden
                         className="h-5 w-5 text-[#383330]"
@@ -179,30 +163,16 @@ export default function Contact() {
                         placeholder="Seu E-mail"
                         value={email}
                         onChange={handleEmailChange}
-                        onBlur={() =>
-                          setTouched((s) => ({ ...s, email: true }))
-                        }
                         inputMode="email"
                         autoComplete="email"
-                        aria-invalid={touched.email && !emailValid}
+                        aria-invalid={false}
                         className="min-w-0 flex-1 bg-transparent outline-none text-[#383330] placeholder-[#383330]/70 text-base"
                       />
                     </div>
-                    {touched.email && !emailValid && (
-                      <p className="mt-1 text-xs text-red-600">
-                        E-mail inválido. Ex.: nome@dominio.com
-                      </p>
-                    )}
                   </label>
                   {/* Mensagem ajustada para textarea e ícone adequado */}
                   <label className="block md:col-start-2 md:row-start-1 md:row-span-3">
-                    <div
-                      className={`flex items-start gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ${
-                        touched.message && !messageValid
-                          ? "ring-1 ring-red-500"
-                          : "ring-1 ring-black/10"
-                      }`}
-                    >
+                    <div className="flex items-start gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ring-1 ring-black/10">
                       <svg
                         aria-hidden
                         className="h-5 w-5 text-[#383330] mt-1"
@@ -220,29 +190,15 @@ export default function Contact() {
                         placeholder="Digite uma mensagem"
                         value={message}
                         onChange={handleMessageChange}
-                        onBlur={() =>
-                          setTouched((s) => ({ ...s, message: true }))
-                        }
                         rows={6}
                         autoComplete="off"
-                        aria-invalid={touched.message && !messageValid}
+                        aria-invalid={false}
                         className="min-w-0 flex-1 bg-transparent outline-none text-[#383330] placeholder-[#383330]/70 text-base resize-y"
                       />
                     </div>
-                    {touched.message && !messageValid && (
-                      <p className="mt-1 text-xs text-red-600">
-                        Mensagem inválida. Mínimo 10 caracteres.
-                      </p>
-                    )}
                   </label>
                   <label className="block md:col-start-1 md:row-start-3">
-                    <div
-                      className={`flex items-center gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ${
-                        touched.phone && !phoneValid
-                          ? "ring-1 ring-red-500"
-                          : "ring-1 ring-black/10"
-                      }`}
-                    >
+                    <div className="flex items-center gap-3 bg-white/80 rounded-md px-4 py-3 shadow-sm w-full ring-1 ring-black/10">
                       <svg
                         aria-hidden
                         className="h-5 w-5 text-[#383330]"
@@ -261,25 +217,18 @@ export default function Contact() {
                         placeholder="Celular"
                         value={phone}
                         onChange={handlePhoneChange}
-                        onBlur={() =>
-                          setTouched((s) => ({ ...s, phone: true }))
-                        }
                         inputMode="numeric"
                         autoComplete="tel"
-                        aria-invalid={touched.phone && !phoneValid}
+                        aria-invalid={false}
                         className="min-w-0 flex-1 bg-transparent outline-none text-[#383330] placeholder-[#383330]/70 text-base"
                       />
                     </div>
-                    {touched.phone && !phoneValid && (
-                      <p className="mt-1 text-xs text-red-600">
-                        Celular inválido. Use DDD e 10–11 dígitos.
-                      </p>
-                    )}
                   </label>
                   <button
                     type="submit"
-                    disabled={!formValid || isSubmitting}
-                    className="mx-auto w-[200px] md:col-span-2  bg-[#383330] hover:bg-[#4A362D] text-white rounded-md py-3 px-6 font-medium text-base disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                    disabled={!canShowButton || isSubmitting}
+                    aria-disabled={!canShowButton || isSubmitting}
+                    className="mx-auto w-[200px] md:col-span-2 bg-[#383330] hover:bg-[#4A362D] text-white rounded-md py-3 px-6 font-medium text-base disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                   >
                     {isSubmitting ? "Enviando..." : "Enviar"}
                   </button>

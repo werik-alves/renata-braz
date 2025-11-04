@@ -10,21 +10,27 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     quote:
-      "Não há nada melhor do que contar com uma contadora de profissionalismo refinado e olhar atento ao seu negócio. A Renata me ajuda a organizar e tornar os processos da minha empresa mais fluidos. Tira dúvidas e está sempre disposta a ajudar. Obrigada, Renata, por estar comigo nessa. Profissional excelente — recomendo com orgulho.",
+      "Nada melhor do que uma contadora com profissionalismo refinado e um olhar atencioso para o seu negócio. A Renata me ajuda a organizar e tornar as rotinas da minha empresa mais fluídas. Está sempre disposta a tirar dúvidas e oferecer ajuda. Obrigada, Renata, por estar comigo nessa jornada. Uma profissional excelente — recomendo com orgulho!",
     author: "Cris",
-    role: "Proprietária da Barbershop Art",
+    role: "Dona da Barbershop Art",
   },
   {
     quote:
-      "Ter a Renata como parceira tem sido essencial para manter minha empresa organizada e em conformidade com todas as obrigações. Desde o início como MEI, ela me apoia em todas as etapas com profissionalismo e atenção aos detalhes, orientando sobre prazos, tributações e mudanças legais que impactam o negócio. Recomendo seu trabalho a qualquer empreendedor que busca tranquilidade e eficiência na contabilidade.",
+      "Ter a Renata como parceira tem sido essencial para manter minha empresa organizada e em conformidade com todas as obrigações burocráticas. Desde que comecei minha jornada como ME, ela me apoia em todas as etapas com profissionalismo e atenção aos detalhes, sempre orientando sobre prazos, tributações e mudanças legais que impactam o meu negócio. Recomendo seu trabalho a qualquer empreendedor que busca tranquilidade e eficiência em sua contabilidade!",
     author: "Ravena Souza",
-    role: "Proprietária da Ravena Design",
+    role: "Dona da Ravena Desing",
   },
   {
     quote:
-      "A parceria com a Renata trouxe segurança e previsibilidade para o meu negócio. Ela explica tudo com clareza e cuida dos prazos, o que me permite focar no que realmente importa.",
-    author: "Cliente",
-    role: "Empreendedora",
+      "Desde o primeiro contato com a Renata senti muito profissionalismo da parte dela, sempre foi solicita em tirar todas as minhas dúvidas, foi uma ótima escolha para contabilidade me deu segurança e ao mesmo tempo certeza que posso ficar despreocupada que não terei surpresas. Obrigada pela parceria e paciência",
+    author: "Sabrina Helen",
+    role: "Dona da Sabrina Design",
+  },
+  {
+    quote:
+      "Desde que a Renata Braz passou a cuidar da minha contabilidade, tenho tido paz na mente pra fazer o que preciso no dia a dia em meu trabalho, pois tenho segurança e confiança de que tem alguém cuidando de tudo pra mim. Com agilidade em tudo que pedi a ela sempre, atendimento cordial que faz toda diferença também.",
+    author: "Tatiana Canestraro",
+    role: "Dona da Canestraro's",
   },
 ];
 

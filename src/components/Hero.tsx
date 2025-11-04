@@ -10,8 +10,14 @@ export default function Hero() {
         aria-hidden="true"
       />
 
+      {/* Película sobre o fundo para melhorar contraste */}
+      <div
+        className="absolute inset-0 bg-[#383330]/55 z-10 pointer-events-none"
+        aria-hidden="true"
+      />
+
       {/* Conteúdo na frente, centralizado */}
-      <div className="relative z-10 mx-auto max-w-6xl w-full px-4 sm:px-6 md:px-8 flex flex-col items-center text-center gap-4">
+      <div className="relative z-20 mx-auto max-w-6xl w-full px-4 sm:px-6 md:px-8 flex flex-col items-center text-center gap-4">
         <Image
           src="/assets/hero.png"
           alt="Logo Conflui Contabilidade"
