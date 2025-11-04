@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsappFloat from "../components/WhatsappFloat";
 import { Poppins } from "next/font/google";
+import Script from "next/script";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL, defaultOpenGraph, defaultTwitter, canonicalForPath } from "../lib/seo";
 
 const poppins = Poppins({
@@ -65,7 +66,10 @@ export default function RootLayout({
     <html lang="pt-BR" className={poppins.variable}>
       <head>
         <meta name="adopt-website-id" content="419460d1-a05a-4e0b-a41f-ea697b4aa6f7" />
-        <script src="//tag.goadopt.io/injector.js?website_code=419460d1-a05a-4e0b-a41f-ea697b4aa6f7" className="adopt-injector"></script>
+        <Script
+          src="//tag.goadopt.io/injector.js?website_code=419460d1-a05a-4e0b-a41f-ea697b4aa6f7"
+          strategy="beforeInteractive"
+        />
       </head>
       <body className="bg-background text-foreground antialiased">
         <Navbar />
