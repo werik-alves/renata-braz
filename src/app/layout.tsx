@@ -63,6 +63,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={poppins.variable}>
+      <head>
+        <meta name="adopt-website-id" content="419460d1-a05a-4e0b-a41f-ea697b4aa6f7" />
+        <script src="//tag.goadopt.io/injector.js?website_code=419460d1-a05a-4e0b-a41f-ea697b4aa6f7" className="adopt-injector"></script>
+      </head>
       <body className="bg-background text-foreground antialiased">
         <Navbar />
         <main className="pt-0 md:pt-16">{children}</main>
