@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { buildWhatsappLink, buildInstagramLink } from "../lib/links";
 
 export default function Footer() {
@@ -104,7 +105,12 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 border-t border-white/10 pt-4 text-center text-xs">
-          © {year} Conflui contabilidade. Todos os direitos reservados.
+          <p>© {year} Conflui contabilidade. Todos os direitos reservados.</p>
+          <p className="mt-2">
+            <Link href="/politica-de-privacidade" className="hover:underline">
+              Política de Privacidade
+            </Link>
+          </p>
         </div>
       </div>
     </footer>

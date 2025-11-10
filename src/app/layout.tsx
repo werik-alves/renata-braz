@@ -4,8 +4,15 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsappFloat from "../components/WhatsappFloat";
 import { Poppins } from "next/font/google";
-import Script from "next/script";
-import { SITE_NAME, SITE_DESCRIPTION, SITE_URL, defaultOpenGraph, defaultTwitter, canonicalForPath } from "../lib/seo";
+import {
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  SITE_URL,
+  defaultOpenGraph,
+  defaultTwitter,
+  canonicalForPath,
+} from "../lib/seo";
+import CookieBanner from "../components/CookieBanner";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -64,18 +71,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={poppins.variable}>
-      <head>
-        <meta name="adopt-website-id" content="419460d1-a05a-4e0b-a41f-ea697b4aa6f7" />
-        <Script
-          src="//tag.goadopt.io/injector.js?website_code=419460d1-a05a-4e0b-a41f-ea697b4aa6f7"
-          strategy="beforeInteractive"
-        />
-      </head>
+      <head></head>
       <body className="bg-background text-foreground antialiased">
         <Navbar />
         <main className="pt-0 md:pt-16">{children}</main>
         <Footer />
         <WhatsappFloat />
+        <CookieBanner />
       </body>
     </html>
   );

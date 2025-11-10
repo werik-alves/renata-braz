@@ -15,7 +15,7 @@ export default function PoliticaPrivacidadePage() {
     year: "numeric",
   }).format(hoje);
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://renata-braz.vercel.app";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://confluicontabilidade.com.br";
 
   return (
     <section className="container mx-auto px-4 py-10 max-w-3xl bg-[#f8f9fa] text-[#343a40]">
